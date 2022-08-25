@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Crafty_DBModelStoreContainer" CdmEntityContainer="Crafty_DBEntities1">
+    <EntitySetMapping Name="Cart_tbl">
+      <EntityTypeMapping TypeName="Crafty_DBModel.Cart_tbl">
+        <MappingFragment StoreEntitySet="Cart_tbl">
+          <ScalarProperty Name="Cart_ID" ColumnName="Cart_ID" />
+          <ScalarProperty Name="P_ID" ColumnName="P_ID" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Total_Price" ColumnName="Total_Price" />
+          <ScalarProperty Name="U_ID" ColumnName="U_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Order_tbl">
+      <EntityTypeMapping TypeName="Crafty_DBModel.Order_tbl">
+        <MappingFragment StoreEntitySet="Order_tbl">
+          <ScalarProperty Name="Order_ID" ColumnName="Order_ID" />
+          <ScalarProperty Name="Order_Date" ColumnName="Order_Date" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="Order_Status" ColumnName="Order_Status" />
+          <ScalarProperty Name="U_ID" ColumnName="U_ID" />
+          <ScalarProperty Name="P_ID" ColumnName="P_ID" />
+          <ScalarProperty Name="Cart_ID" ColumnName="Cart_ID" />
+          <ScalarProperty Name="Pay_ID" ColumnName="Pay_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Payment_tbl">
+      <EntityTypeMapping TypeName="Crafty_DBModel.Payment_tbl">
+        <MappingFragment StoreEntitySet="Payment_tbl">
+          <ScalarProperty Name="Pay_ID" ColumnName="Pay_ID" />
+          <ScalarProperty Name="Pay_Method" ColumnName="Pay_Method" />
+          <ScalarProperty Name="Bkash_Number" ColumnName="Bkash_Number" />
+          <ScalarProperty Name="Transaction_ID" ColumnName="Transaction_ID" />
+          <ScalarProperty Name="Pay_Date" ColumnName="Pay_Date" />
+          <ScalarProperty Name="Pay_Status" ColumnName="Pay_Status" />
+          <ScalarProperty Name="Pay_Amount" ColumnName="Pay_Amount" />
+          <ScalarProperty Name="Cart_ID" ColumnName="Cart_ID" />
+          <ScalarProperty Name="P_ID" ColumnName="P_ID" />
+          <ScalarProperty Name="U_ID" ColumnName="U_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Product_tbl">
+      <EntityTypeMapping TypeName="Crafty_DBModel.Product_tbl">
+        <MappingFragment StoreEntitySet="Product_tbl">
+          <ScalarProperty Name="P_ID" ColumnName="P_ID" />
+          <ScalarProperty Name="Product_Name" ColumnName="Product_Name" />
+          <ScalarProperty Name="Product_Image" ColumnName="Product_Image" />
+          <ScalarProperty Name="Product_Base_Price" ColumnName="Product_Base_Price" />
+          <ScalarProperty Name="Product_Offer_Price" ColumnName="Product_Offer_Price" />
+          <ScalarProperty Name="Product_Discount" ColumnName="Product_Discount" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="Features" ColumnName="Features" />
+          <ScalarProperty Name="Product_Descriptation" ColumnName="Product_Descriptation" />
+          <ScalarProperty Name="Product_Stock" ColumnName="Product_Stock" />
+          <ScalarProperty Name="Product_Sold" ColumnName="Product_Sold" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User_tbl">
+      <EntityTypeMapping TypeName="Crafty_DBModel.User_tbl">
+        <MappingFragment StoreEntitySet="User_tbl">
+          <ScalarProperty Name="U_ID" ColumnName="U_ID" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+          <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Mail" ColumnName="Mail" />
+          <ScalarProperty Name="Dateofbirth" ColumnName="Dateofbirth" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

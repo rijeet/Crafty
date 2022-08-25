@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2a5d32be3a8f473090778ffee7fa537d" Name="Diagram1">
+        <EntityTypeShape EntityType="Crafty_DBModel.Cart_tbl" Width="1.5" PointX="3" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Crafty_DBModel.Order_tbl" Width="1.5" PointX="5.25" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Crafty_DBModel.Payment_tbl" Width="1.5" PointX="8.25" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="Crafty_DBModel.Product_tbl" Width="1.5" PointX="0.75" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="Crafty_DBModel.User_tbl" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="Crafty_DBModel.FK__Cart_tbl__P_ID__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="Crafty_DBModel.FK__Cart_tbl__U_ID__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="Crafty_DBModel.FK__Order_tbl__Cart___4BAC3F29" ManuallyRouted="false" />
+        <AssociationConnector Association="Crafty_DBModel.FK__Payment_t__Cart___440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="Crafty_DBModel.FK__Order_tbl__P_ID__4AB81AF0" ManuallyRouted="false" />
+        <AssociationConnector Association="Crafty_DBModel.FK__Order_tbl__Pay_I__4CA06362" ManuallyRouted="false" />
+        <AssociationConnector Association="Crafty_DBModel.FK__Order_tbl__U_ID__49C3F6B7" ManuallyRouted="false" />
+        <AssociationConnector Association="Crafty_DBModel.FK__Payment_tb__P_ID__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="Crafty_DBModel.FK__Payment_tb__U_ID__45F365D3" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

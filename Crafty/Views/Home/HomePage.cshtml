@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Crafty.Models.Product_tbl>
+
+
+
+<div class="ImageDiv">
+
+    <div class="container ">
+
+        <div class="row mt-4">
+
+
+            @foreach (var item in Model)
+            {
+
+
+                <div class="col-md-3 mt-3">
+
+                    <div class="card">
+
+                        <img width="255" height="200" src="@Url.Content(item.Product_Image)">
+
+                        <div class="card-body">
+
+                            <h4 class="card-title">@Html.DisplayFor(modelItem => item.Product_Name) </h4>
+	                        <h4 class="card-title">@Html.DisplayFor(modelItem => item.Product_Descriptation) </h4>
+	                        <h4 class="card-title">@Html.DisplayFor(modelItem => item.Product_Offer_Price) </h4>
+	                        <h4 class="card-title">@Html.DisplayFor(modelItem => item.Category) </h4>
+	                        <h4 class="card-title">@Html.DisplayFor(modelItem => item.Features) </h4>
+	                        <h4 class="card-title">@Html.DisplayFor(modelItem => item.Product_Stock) </h4>
+                            <h4 class="card-title">@Html.ActionLink("Details", "Product_tblShow", new { id = item.P_ID })</h4>
+
+                            <div class="col text-center">
+                                <button type="submit" class="btn btn-success" name="edit_btn">
+                                    Select
+                                </button>
+                            </div>
+
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            }
+
+        </div>
+
+    </div>
+
+
+</div>

@@ -1,0 +1,583 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Crafty_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Cart_tbl">
+          <Key>
+            <PropertyRef Name="Cart_ID" />
+          </Key>
+          <Property Name="Cart_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="P_ID" Type="int" />
+          <Property Name="Quantity" Type="int" />
+          <Property Name="Total_Price" Type="int" />
+          <Property Name="U_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="Order_tbl">
+          <Key>
+            <PropertyRef Name="Order_ID" />
+          </Key>
+          <Property Name="Order_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Order_Date" Type="date" />
+          <Property Name="Total" Type="int" />
+          <Property Name="Order_Status" Type="varchar" MaxLength="50" />
+          <Property Name="U_ID" Type="int" />
+          <Property Name="P_ID" Type="int" />
+          <Property Name="Cart_ID" Type="int" />
+          <Property Name="Pay_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="Payment_tbl">
+          <Key>
+            <PropertyRef Name="Pay_ID" />
+          </Key>
+          <Property Name="Pay_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Pay_Method" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Bkash_Number" Type="int" />
+          <Property Name="Transaction_ID" Type="int" />
+          <Property Name="Pay_Date" Type="date" />
+          <Property Name="Pay_Status" Type="varchar" MaxLength="50" />
+          <Property Name="Pay_Amount" Type="int" />
+          <Property Name="Cart_ID" Type="int" />
+          <Property Name="P_ID" Type="int" />
+          <Property Name="U_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="Product_tbl">
+          <Key>
+            <PropertyRef Name="P_ID" />
+          </Key>
+          <Property Name="P_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Product_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Product_Image" Type="varchar" MaxLength="255" />
+          <Property Name="Product_Base_Price" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Product_Offer_Price" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Product_Discount" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Category" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Features" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Product_Descriptation" Type="varchar(max)" Nullable="false" />
+          <Property Name="Product_Stock" Type="int" Nullable="false" />
+          <Property Name="Product_Sold" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User_tbl">
+          <Key>
+            <PropertyRef Name="U_ID" />
+          </Key>
+          <Property Name="U_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Image" Type="varchar" MaxLength="255" />
+          <Property Name="Firstname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Lastname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Phone" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Mail" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Dateofbirth" Type="date" Nullable="false" />
+          <Property Name="Address" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Gender" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Username" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="Role" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK__Cart_tbl__P_ID__3F466844">
+          <End Role="Product_tbl" Type="Self.Product_tbl" Multiplicity="0..1" />
+          <End Role="Cart_tbl" Type="Self.Cart_tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product_tbl">
+              <PropertyRef Name="P_ID" />
+            </Principal>
+            <Dependent Role="Cart_tbl">
+              <PropertyRef Name="P_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cart_tbl__U_ID__403A8C7D">
+          <End Role="User_tbl" Type="Self.User_tbl" Multiplicity="0..1" />
+          <End Role="Cart_tbl" Type="Self.Cart_tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User_tbl">
+              <PropertyRef Name="U_ID" />
+            </Principal>
+            <Dependent Role="Cart_tbl">
+              <PropertyRef Name="U_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Order_tbl__Cart___4BAC3F29">
+          <End Role="Cart_tbl" Type="Self.Cart_tbl" Multiplicity="0..1" />
+          <End Role="Order_tbl" Type="Self.Order_tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cart_tbl">
+              <PropertyRef Name="Cart_ID" />
+            </Principal>
+            <Dependent Role="Order_tbl">
+              <PropertyRef Name="Cart_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Order_tbl__P_ID__4AB81AF0">
+          <End Role="Product_tbl" Type="Self.Product_tbl" Multiplicity="0..1" />
+          <End Role="Order_tbl" Type="Self.Order_tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product_tbl">
+              <PropertyRef Name="P_ID" />
+            </Principal>
+            <Dependent Role="Order_tbl">
+              <PropertyRef Name="P_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Order_tbl__Pay_I__4CA06362">
+          <End Role="Payment_tbl" Type="Self.Payment_tbl" Multiplicity="0..1" />
+          <End Role="Order_tbl" Type="Self.Order_tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Payment_tbl">
+              <PropertyRef Name="Pay_ID" />
+            </Principal>
+            <Dependent Role="Order_tbl">
+              <PropertyRef Name="Pay_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Order_tbl__U_ID__49C3F6B7">
+          <End Role="User_tbl" Type="Self.User_tbl" Multiplicity="0..1" />
+          <End Role="Order_tbl" Type="Self.Order_tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User_tbl">
+              <PropertyRef Name="U_ID" />
+            </Principal>
+            <Dependent Role="Order_tbl">
+              <PropertyRef Name="U_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Payment_t__Cart___440B1D61">
+          <End Role="Cart_tbl" Type="Self.Cart_tbl" Multiplicity="0..1" />
+          <End Role="Payment_tbl" Type="Self.Payment_tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cart_tbl">
+              <PropertyRef Name="Cart_ID" />
+            </Principal>
+            <Dependent Role="Payment_tbl">
+              <PropertyRef Name="Cart_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Payment_tb__P_ID__44FF419A">
+          <End Role="Product_tbl" Type="Self.Product_tbl" Multiplicity="0..1" />
+          <End Role="Payment_tbl" Type="Self.Payment_tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product_tbl">
+              <PropertyRef Name="P_ID" />
+            </Principal>
+            <Dependent Role="Payment_tbl">
+              <PropertyRef Name="P_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Payment_tb__U_ID__45F365D3">
+          <End Role="User_tbl" Type="Self.User_tbl" Multiplicity="0..1" />
+          <End Role="Payment_tbl" Type="Self.Payment_tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User_tbl">
+              <PropertyRef Name="U_ID" />
+            </Principal>
+            <Dependent Role="Payment_tbl">
+              <PropertyRef Name="U_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Crafty_DBModelStoreContainer">
+          <EntitySet Name="Cart_tbl" EntityType="Self.Cart_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Order_tbl" EntityType="Self.Order_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Payment_tbl" EntityType="Self.Payment_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product_tbl" EntityType="Self.Product_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User_tbl" EntityType="Self.User_tbl" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Cart_tbl__P_ID__3F466844" Association="Self.FK__Cart_tbl__P_ID__3F466844">
+            <End Role="Product_tbl" EntitySet="Product_tbl" />
+            <End Role="Cart_tbl" EntitySet="Cart_tbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cart_tbl__U_ID__403A8C7D" Association="Self.FK__Cart_tbl__U_ID__403A8C7D">
+            <End Role="User_tbl" EntitySet="User_tbl" />
+            <End Role="Cart_tbl" EntitySet="Cart_tbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Order_tbl__Cart___4BAC3F29" Association="Self.FK__Order_tbl__Cart___4BAC3F29">
+            <End Role="Cart_tbl" EntitySet="Cart_tbl" />
+            <End Role="Order_tbl" EntitySet="Order_tbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Order_tbl__P_ID__4AB81AF0" Association="Self.FK__Order_tbl__P_ID__4AB81AF0">
+            <End Role="Product_tbl" EntitySet="Product_tbl" />
+            <End Role="Order_tbl" EntitySet="Order_tbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Order_tbl__Pay_I__4CA06362" Association="Self.FK__Order_tbl__Pay_I__4CA06362">
+            <End Role="Payment_tbl" EntitySet="Payment_tbl" />
+            <End Role="Order_tbl" EntitySet="Order_tbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Order_tbl__U_ID__49C3F6B7" Association="Self.FK__Order_tbl__U_ID__49C3F6B7">
+            <End Role="User_tbl" EntitySet="User_tbl" />
+            <End Role="Order_tbl" EntitySet="Order_tbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Payment_t__Cart___440B1D61" Association="Self.FK__Payment_t__Cart___440B1D61">
+            <End Role="Cart_tbl" EntitySet="Cart_tbl" />
+            <End Role="Payment_tbl" EntitySet="Payment_tbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Payment_tb__P_ID__44FF419A" Association="Self.FK__Payment_tb__P_ID__44FF419A">
+            <End Role="Product_tbl" EntitySet="Product_tbl" />
+            <End Role="Payment_tbl" EntitySet="Payment_tbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Payment_tb__U_ID__45F365D3" Association="Self.FK__Payment_tb__U_ID__45F365D3">
+            <End Role="User_tbl" EntitySet="User_tbl" />
+            <End Role="Payment_tbl" EntitySet="Payment_tbl" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Crafty_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Cart_tbl">
+          <Key>
+            <PropertyRef Name="Cart_ID" />
+          </Key>
+          <Property Name="Cart_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="P_ID" Type="Int32" />
+          <Property Name="Quantity" Type="Int32" />
+          <Property Name="Total_Price" Type="Int32" />
+          <Property Name="U_ID" Type="Int32" />
+          <NavigationProperty Name="Product_tbl" Relationship="Self.FK__Cart_tbl__P_ID__3F466844" FromRole="Cart_tbl" ToRole="Product_tbl" />
+          <NavigationProperty Name="User_tbl" Relationship="Self.FK__Cart_tbl__U_ID__403A8C7D" FromRole="Cart_tbl" ToRole="User_tbl" />
+          <NavigationProperty Name="Order_tbl" Relationship="Self.FK__Order_tbl__Cart___4BAC3F29" FromRole="Cart_tbl" ToRole="Order_tbl" />
+          <NavigationProperty Name="Payment_tbl" Relationship="Self.FK__Payment_t__Cart___440B1D61" FromRole="Cart_tbl" ToRole="Payment_tbl" />
+        </EntityType>
+        <EntityType Name="Order_tbl">
+          <Key>
+            <PropertyRef Name="Order_ID" />
+          </Key>
+          <Property Name="Order_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Order_Date" Type="DateTime" Precision="0" />
+          <Property Name="Total" Type="Int32" />
+          <Property Name="Order_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="U_ID" Type="Int32" />
+          <Property Name="P_ID" Type="Int32" />
+          <Property Name="Cart_ID" Type="Int32" />
+          <Property Name="Pay_ID" Type="Int32" />
+          <NavigationProperty Name="Cart_tbl" Relationship="Self.FK__Order_tbl__Cart___4BAC3F29" FromRole="Order_tbl" ToRole="Cart_tbl" />
+          <NavigationProperty Name="Product_tbl" Relationship="Self.FK__Order_tbl__P_ID__4AB81AF0" FromRole="Order_tbl" ToRole="Product_tbl" />
+          <NavigationProperty Name="Payment_tbl" Relationship="Self.FK__Order_tbl__Pay_I__4CA06362" FromRole="Order_tbl" ToRole="Payment_tbl" />
+          <NavigationProperty Name="User_tbl" Relationship="Self.FK__Order_tbl__U_ID__49C3F6B7" FromRole="Order_tbl" ToRole="User_tbl" />
+        </EntityType>
+        <EntityType Name="Payment_tbl">
+          <Key>
+            <PropertyRef Name="Pay_ID" />
+          </Key>
+          <Property Name="Pay_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Pay_Method" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Bkash_Number" Type="Int32" />
+          <Property Name="Transaction_ID" Type="Int32" />
+          <Property Name="Pay_Date" Type="DateTime" Precision="0" />
+          <Property Name="Pay_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Pay_Amount" Type="Int32" />
+          <Property Name="Cart_ID" Type="Int32" />
+          <Property Name="P_ID" Type="Int32" />
+          <Property Name="U_ID" Type="Int32" />
+          <NavigationProperty Name="Cart_tbl" Relationship="Self.FK__Payment_t__Cart___440B1D61" FromRole="Payment_tbl" ToRole="Cart_tbl" />
+          <NavigationProperty Name="Order_tbl" Relationship="Self.FK__Order_tbl__Pay_I__4CA06362" FromRole="Payment_tbl" ToRole="Order_tbl" />
+          <NavigationProperty Name="Product_tbl" Relationship="Self.FK__Payment_tb__P_ID__44FF419A" FromRole="Payment_tbl" ToRole="Product_tbl" />
+          <NavigationProperty Name="User_tbl" Relationship="Self.FK__Payment_tb__U_ID__45F365D3" FromRole="Payment_tbl" ToRole="User_tbl" />
+        </EntityType>
+        <EntityType Name="Product_tbl">
+          <Key>
+            <PropertyRef Name="P_ID" />
+          </Key>
+          <Property Name="P_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Product_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Product_Image" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Product_Base_Price" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Product_Offer_Price" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Product_Discount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Features" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Product_Descriptation" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Product_Stock" Type="Int32" Nullable="false" />
+          <Property Name="Product_Sold" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Cart_tbl" Relationship="Self.FK__Cart_tbl__P_ID__3F466844" FromRole="Product_tbl" ToRole="Cart_tbl" />
+          <NavigationProperty Name="Order_tbl" Relationship="Self.FK__Order_tbl__P_ID__4AB81AF0" FromRole="Product_tbl" ToRole="Order_tbl" />
+          <NavigationProperty Name="Payment_tbl" Relationship="Self.FK__Payment_tb__P_ID__44FF419A" FromRole="Product_tbl" ToRole="Payment_tbl" />
+        </EntityType>
+        <EntityType Name="User_tbl">
+          <Key>
+            <PropertyRef Name="U_ID" />
+          </Key>
+          <Property Name="U_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Image" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Firstname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Mail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Dateofbirth" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Cart_tbl" Relationship="Self.FK__Cart_tbl__U_ID__403A8C7D" FromRole="User_tbl" ToRole="Cart_tbl" />
+          <NavigationProperty Name="Order_tbl" Relationship="Self.FK__Order_tbl__U_ID__49C3F6B7" FromRole="User_tbl" ToRole="Order_tbl" />
+          <NavigationProperty Name="Payment_tbl" Relationship="Self.FK__Payment_tb__U_ID__45F365D3" FromRole="User_tbl" ToRole="Payment_tbl" />
+        </EntityType>
+        <Association Name="FK__Cart_tbl__P_ID__3F466844">
+          <End Role="Product_tbl" Type="Self.Product_tbl" Multiplicity="0..1" />
+          <End Role="Cart_tbl" Type="Self.Cart_tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product_tbl">
+              <PropertyRef Name="P_ID" />
+            </Principal>
+            <Dependent Role="Cart_tbl">
+              <PropertyRef Name="P_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cart_tbl__U_ID__403A8C7D">
+          <End Role="User_tbl" Type="Self.User_tbl" Multiplicity="0..1" />
+          <End Role="Cart_tbl" Type="Self.Cart_tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User_tbl">
+              <PropertyRef Name="U_ID" />
+            </Principal>
+            <Dependent Role="Cart_tbl">
+              <PropertyRef Name="U_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Order_tbl__Cart___4BAC3F29">
+          <End Role="Cart_tbl" Type="Self.Cart_tbl" Multiplicity="0..1" />
+          <End Role="Order_tbl" Type="Self.Order_tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cart_tbl">
+              <PropertyRef Name="Cart_ID" />
+            </Principal>
+            <Dependent Role="Order_tbl">
+              <PropertyRef Name="Cart_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Payment_t__Cart___440B1D61">
+          <End Role="Cart_tbl" Type="Self.Cart_tbl" Multiplicity="0..1" />
+          <End Role="Payment_tbl" Type="Self.Payment_tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cart_tbl">
+              <PropertyRef Name="Cart_ID" />
+            </Principal>
+            <Dependent Role="Payment_tbl">
+              <PropertyRef Name="Cart_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Order_tbl__P_ID__4AB81AF0">
+          <End Role="Product_tbl" Type="Self.Product_tbl" Multiplicity="0..1" />
+          <End Role="Order_tbl" Type="Self.Order_tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product_tbl">
+              <PropertyRef Name="P_ID" />
+            </Principal>
+            <Dependent Role="Order_tbl">
+              <PropertyRef Name="P_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Order_tbl__Pay_I__4CA06362">
+          <End Role="Payment_tbl" Type="Self.Payment_tbl" Multiplicity="0..1" />
+          <End Role="Order_tbl" Type="Self.Order_tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Payment_tbl">
+              <PropertyRef Name="Pay_ID" />
+            </Principal>
+            <Dependent Role="Order_tbl">
+              <PropertyRef Name="Pay_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Order_tbl__U_ID__49C3F6B7">
+          <End Role="User_tbl" Type="Self.User_tbl" Multiplicity="0..1" />
+          <End Role="Order_tbl" Type="Self.Order_tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User_tbl">
+              <PropertyRef Name="U_ID" />
+            </Principal>
+            <Dependent Role="Order_tbl">
+              <PropertyRef Name="U_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Payment_tb__P_ID__44FF419A">
+          <End Role="Product_tbl" Type="Self.Product_tbl" Multiplicity="0..1" />
+          <End Role="Payment_tbl" Type="Self.Payment_tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product_tbl">
+              <PropertyRef Name="P_ID" />
+            </Principal>
+            <Dependent Role="Payment_tbl">
+              <PropertyRef Name="P_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Payment_tb__U_ID__45F365D3">
+          <End Role="User_tbl" Type="Self.User_tbl" Multiplicity="0..1" />
+          <End Role="Payment_tbl" Type="Self.Payment_tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User_tbl">
+              <PropertyRef Name="U_ID" />
+            </Principal>
+            <Dependent Role="Payment_tbl">
+              <PropertyRef Name="U_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Crafty_DBEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Cart_tbl" EntityType="Self.Cart_tbl" />
+          <EntitySet Name="Order_tbl" EntityType="Self.Order_tbl" />
+          <EntitySet Name="Payment_tbl" EntityType="Self.Payment_tbl" />
+          <EntitySet Name="Product_tbl" EntityType="Self.Product_tbl" />
+          <EntitySet Name="User_tbl" EntityType="Self.User_tbl" />
+          <AssociationSet Name="FK__Cart_tbl__P_ID__3F466844" Association="Self.FK__Cart_tbl__P_ID__3F466844">
+            <End Role="Product_tbl" EntitySet="Product_tbl" />
+            <End Role="Cart_tbl" EntitySet="Cart_tbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cart_tbl__U_ID__403A8C7D" Association="Self.FK__Cart_tbl__U_ID__403A8C7D">
+            <End Role="User_tbl" EntitySet="User_tbl" />
+            <End Role="Cart_tbl" EntitySet="Cart_tbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Order_tbl__Cart___4BAC3F29" Association="Self.FK__Order_tbl__Cart___4BAC3F29">
+            <End Role="Cart_tbl" EntitySet="Cart_tbl" />
+            <End Role="Order_tbl" EntitySet="Order_tbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Payment_t__Cart___440B1D61" Association="Self.FK__Payment_t__Cart___440B1D61">
+            <End Role="Cart_tbl" EntitySet="Cart_tbl" />
+            <End Role="Payment_tbl" EntitySet="Payment_tbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Order_tbl__P_ID__4AB81AF0" Association="Self.FK__Order_tbl__P_ID__4AB81AF0">
+            <End Role="Product_tbl" EntitySet="Product_tbl" />
+            <End Role="Order_tbl" EntitySet="Order_tbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Order_tbl__Pay_I__4CA06362" Association="Self.FK__Order_tbl__Pay_I__4CA06362">
+            <End Role="Payment_tbl" EntitySet="Payment_tbl" />
+            <End Role="Order_tbl" EntitySet="Order_tbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Order_tbl__U_ID__49C3F6B7" Association="Self.FK__Order_tbl__U_ID__49C3F6B7">
+            <End Role="User_tbl" EntitySet="User_tbl" />
+            <End Role="Order_tbl" EntitySet="Order_tbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Payment_tb__P_ID__44FF419A" Association="Self.FK__Payment_tb__P_ID__44FF419A">
+            <End Role="Product_tbl" EntitySet="Product_tbl" />
+            <End Role="Payment_tbl" EntitySet="Payment_tbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Payment_tb__U_ID__45F365D3" Association="Self.FK__Payment_tb__U_ID__45F365D3">
+            <End Role="User_tbl" EntitySet="User_tbl" />
+            <End Role="Payment_tbl" EntitySet="Payment_tbl" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Crafty_DBModelStoreContainer" CdmEntityContainer="Crafty_DBEntities1">
+          <EntitySetMapping Name="Cart_tbl">
+            <EntityTypeMapping TypeName="Crafty_DBModel.Cart_tbl">
+              <MappingFragment StoreEntitySet="Cart_tbl">
+                <ScalarProperty Name="Cart_ID" ColumnName="Cart_ID" />
+                <ScalarProperty Name="P_ID" ColumnName="P_ID" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Total_Price" ColumnName="Total_Price" />
+                <ScalarProperty Name="U_ID" ColumnName="U_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Order_tbl">
+            <EntityTypeMapping TypeName="Crafty_DBModel.Order_tbl">
+              <MappingFragment StoreEntitySet="Order_tbl">
+                <ScalarProperty Name="Order_ID" ColumnName="Order_ID" />
+                <ScalarProperty Name="Order_Date" ColumnName="Order_Date" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Order_Status" ColumnName="Order_Status" />
+                <ScalarProperty Name="U_ID" ColumnName="U_ID" />
+                <ScalarProperty Name="P_ID" ColumnName="P_ID" />
+                <ScalarProperty Name="Cart_ID" ColumnName="Cart_ID" />
+                <ScalarProperty Name="Pay_ID" ColumnName="Pay_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Payment_tbl">
+            <EntityTypeMapping TypeName="Crafty_DBModel.Payment_tbl">
+              <MappingFragment StoreEntitySet="Payment_tbl">
+                <ScalarProperty Name="Pay_ID" ColumnName="Pay_ID" />
+                <ScalarProperty Name="Pay_Method" ColumnName="Pay_Method" />
+                <ScalarProperty Name="Bkash_Number" ColumnName="Bkash_Number" />
+                <ScalarProperty Name="Transaction_ID" ColumnName="Transaction_ID" />
+                <ScalarProperty Name="Pay_Date" ColumnName="Pay_Date" />
+                <ScalarProperty Name="Pay_Status" ColumnName="Pay_Status" />
+                <ScalarProperty Name="Pay_Amount" ColumnName="Pay_Amount" />
+                <ScalarProperty Name="Cart_ID" ColumnName="Cart_ID" />
+                <ScalarProperty Name="P_ID" ColumnName="P_ID" />
+                <ScalarProperty Name="U_ID" ColumnName="U_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Product_tbl">
+            <EntityTypeMapping TypeName="Crafty_DBModel.Product_tbl">
+              <MappingFragment StoreEntitySet="Product_tbl">
+                <ScalarProperty Name="P_ID" ColumnName="P_ID" />
+                <ScalarProperty Name="Product_Name" ColumnName="Product_Name" />
+                <ScalarProperty Name="Product_Image" ColumnName="Product_Image" />
+                <ScalarProperty Name="Product_Base_Price" ColumnName="Product_Base_Price" />
+                <ScalarProperty Name="Product_Offer_Price" ColumnName="Product_Offer_Price" />
+                <ScalarProperty Name="Product_Discount" ColumnName="Product_Discount" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Features" ColumnName="Features" />
+                <ScalarProperty Name="Product_Descriptation" ColumnName="Product_Descriptation" />
+                <ScalarProperty Name="Product_Stock" ColumnName="Product_Stock" />
+                <ScalarProperty Name="Product_Sold" ColumnName="Product_Sold" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User_tbl">
+            <EntityTypeMapping TypeName="Crafty_DBModel.User_tbl">
+              <MappingFragment StoreEntitySet="User_tbl">
+                <ScalarProperty Name="U_ID" ColumnName="U_ID" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Mail" ColumnName="Mail" />
+                <ScalarProperty Name="Dateofbirth" ColumnName="Dateofbirth" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

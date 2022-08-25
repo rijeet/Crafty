@@ -1,0 +1,249 @@
+G:\Education\SD\Crafty\Crafty\bin\Crafty.dll.config
+G:\Education\SD\Crafty\Crafty\bin\Crafty.dll
+G:\Education\SD\Crafty\Crafty\bin\Crafty.pdb
+G:\Education\SD\Crafty\Crafty\bin\roslyn\csc.exe
+G:\Education\SD\Crafty\Crafty\bin\roslyn\csc.exe.config
+G:\Education\SD\Crafty\Crafty\bin\roslyn\csc.rsp
+G:\Education\SD\Crafty\Crafty\bin\roslyn\csi.exe
+G:\Education\SD\Crafty\Crafty\bin\roslyn\csi.exe.config
+G:\Education\SD\Crafty\Crafty\bin\roslyn\csi.rsp
+G:\Education\SD\Crafty\Crafty\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+G:\Education\SD\Crafty\Crafty\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+G:\Education\SD\Crafty\Crafty\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+G:\Education\SD\Crafty\Crafty\bin\roslyn\Microsoft.CodeAnalysis.dll
+G:\Education\SD\Crafty\Crafty\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+G:\Education\SD\Crafty\Crafty\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+G:\Education\SD\Crafty\Crafty\bin\roslyn\Microsoft.CSharp.Core.targets
+G:\Education\SD\Crafty\Crafty\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+G:\Education\SD\Crafty\Crafty\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+G:\Education\SD\Crafty\Crafty\bin\roslyn\Microsoft.Managed.Core.targets
+G:\Education\SD\Crafty\Crafty\bin\roslyn\Microsoft.VisualBasic.Core.targets
+G:\Education\SD\Crafty\Crafty\bin\roslyn\Microsoft.Win32.Primitives.dll
+G:\Education\SD\Crafty\Crafty\bin\roslyn\System.AppContext.dll
+G:\Education\SD\Crafty\Crafty\bin\roslyn\System.Collections.Immutable.dll
+G:\Education\SD\Crafty\Crafty\bin\roslyn\System.Console.dll
+G:\Education\SD\Crafty\Crafty\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+G:\Education\SD\Crafty\Crafty\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+G:\Education\SD\Crafty\Crafty\bin\roslyn\System.Diagnostics.StackTrace.dll
+G:\Education\SD\Crafty\Crafty\bin\roslyn\System.Globalization.Calendars.dll
+G:\Education\SD\Crafty\Crafty\bin\roslyn\System.IO.Compression.dll
+G:\Education\SD\Crafty\Crafty\bin\roslyn\System.IO.Compression.ZipFile.dll
+G:\Education\SD\Crafty\Crafty\bin\roslyn\System.IO.FileSystem.dll
+G:\Education\SD\Crafty\Crafty\bin\roslyn\System.IO.FileSystem.Primitives.dll
+G:\Education\SD\Crafty\Crafty\bin\roslyn\System.Net.Http.dll
+G:\Education\SD\Crafty\Crafty\bin\roslyn\System.Net.Sockets.dll
+G:\Education\SD\Crafty\Crafty\bin\roslyn\System.Reflection.Metadata.dll
+G:\Education\SD\Crafty\Crafty\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+G:\Education\SD\Crafty\Crafty\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+G:\Education\SD\Crafty\Crafty\bin\roslyn\System.Security.Cryptography.Encoding.dll
+G:\Education\SD\Crafty\Crafty\bin\roslyn\System.Security.Cryptography.Primitives.dll
+G:\Education\SD\Crafty\Crafty\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+G:\Education\SD\Crafty\Crafty\bin\roslyn\System.Text.Encoding.CodePages.dll
+G:\Education\SD\Crafty\Crafty\bin\roslyn\System.Threading.Tasks.Extensions.dll
+G:\Education\SD\Crafty\Crafty\bin\roslyn\System.ValueTuple.dll
+G:\Education\SD\Crafty\Crafty\bin\roslyn\System.Xml.ReaderWriter.dll
+G:\Education\SD\Crafty\Crafty\bin\roslyn\System.Xml.XmlDocument.dll
+G:\Education\SD\Crafty\Crafty\bin\roslyn\System.Xml.XPath.dll
+G:\Education\SD\Crafty\Crafty\bin\roslyn\System.Xml.XPath.XDocument.dll
+G:\Education\SD\Crafty\Crafty\bin\roslyn\vbc.exe
+G:\Education\SD\Crafty\Crafty\bin\roslyn\vbc.exe.config
+G:\Education\SD\Crafty\Crafty\bin\roslyn\vbc.rsp
+G:\Education\SD\Crafty\Crafty\bin\roslyn\VBCSCompiler.exe
+G:\Education\SD\Crafty\Crafty\bin\roslyn\VBCSCompiler.exe.config
+G:\Education\SD\Crafty\Crafty\bin\Antlr3.Runtime.dll
+G:\Education\SD\Crafty\Crafty\bin\EntityFramework.dll
+G:\Education\SD\Crafty\Crafty\bin\EntityFramework.SqlServer.dll
+G:\Education\SD\Crafty\Crafty\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+G:\Education\SD\Crafty\Crafty\bin\Microsoft.Web.Infrastructure.dll
+G:\Education\SD\Crafty\Crafty\bin\Newtonsoft.Json.dll
+G:\Education\SD\Crafty\Crafty\bin\System.Web.Helpers.dll
+G:\Education\SD\Crafty\Crafty\bin\System.Web.Mvc.dll
+G:\Education\SD\Crafty\Crafty\bin\System.Web.Optimization.dll
+G:\Education\SD\Crafty\Crafty\bin\System.Web.Razor.dll
+G:\Education\SD\Crafty\Crafty\bin\System.Web.WebPages.Deployment.dll
+G:\Education\SD\Crafty\Crafty\bin\System.Web.WebPages.dll
+G:\Education\SD\Crafty\Crafty\bin\System.Web.WebPages.Razor.dll
+G:\Education\SD\Crafty\Crafty\bin\WebGrease.dll
+G:\Education\SD\Crafty\Crafty\bin\EntityFramework.xml
+G:\Education\SD\Crafty\Crafty\bin\EntityFramework.SqlServer.xml
+G:\Education\SD\Crafty\Crafty\bin\System.Web.Helpers.xml
+G:\Education\SD\Crafty\Crafty\bin\System.Web.Mvc.xml
+G:\Education\SD\Crafty\Crafty\bin\System.Web.Optimization.xml
+G:\Education\SD\Crafty\Crafty\bin\System.Web.Razor.xml
+G:\Education\SD\Crafty\Crafty\bin\System.Web.WebPages.xml
+G:\Education\SD\Crafty\Crafty\bin\System.Web.WebPages.Deployment.xml
+G:\Education\SD\Crafty\Crafty\bin\System.Web.WebPages.Razor.xml
+G:\Education\SD\Crafty\Crafty\bin\Newtonsoft.Json.xml
+G:\Education\SD\Crafty\Crafty\bin\Antlr3.Runtime.pdb
+G:\Education\SD\Crafty\Crafty\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+G:\Education\SD\Crafty\Crafty\obj\Debug\Crafty.csproj.AssemblyReference.cache
+G:\Education\SD\Crafty\Crafty\obj\Debug\Crafty.csproj.CoreCompileInputs.cache
+G:\Education\SD\Crafty\Crafty\obj\Debug\Crafty.csproj.CopyComplete
+G:\Education\SD\Crafty\Crafty\obj\Debug\Crafty.dll
+G:\Education\SD\Crafty\Crafty\obj\Debug\Crafty.pdb
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\Crafty.dll.config
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\Crafty.dll
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\Crafty.pdb
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\roslyn\csc.exe
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\roslyn\csc.exe.config
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\roslyn\csc.rsp
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\roslyn\csi.exe
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\roslyn\csi.exe.config
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\roslyn\csi.rsp
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\roslyn\Microsoft.Managed.Core.targets
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\roslyn\System.AppContext.dll
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\roslyn\System.Collections.Immutable.dll
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\roslyn\System.Console.dll
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\roslyn\System.Globalization.Calendars.dll
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\roslyn\System.IO.Compression.dll
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\roslyn\System.IO.Compression.ZipFile.dll
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\roslyn\System.IO.FileSystem.dll
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\roslyn\System.Net.Http.dll
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\roslyn\System.Net.Sockets.dll
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\roslyn\System.Reflection.Metadata.dll
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\roslyn\System.ValueTuple.dll
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\roslyn\System.Xml.XmlDocument.dll
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\roslyn\System.Xml.XPath.dll
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\roslyn\vbc.exe
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\roslyn\vbc.exe.config
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\roslyn\vbc.rsp
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\roslyn\VBCSCompiler.exe
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\roslyn\VBCSCompiler.exe.config
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\Antlr3.Runtime.dll
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\EntityFramework.dll
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\EntityFramework.SqlServer.dll
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\Microsoft.Web.Infrastructure.dll
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\Newtonsoft.Json.dll
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\System.Web.Helpers.dll
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\System.Web.Mvc.dll
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\System.Web.Optimization.dll
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\System.Web.Razor.dll
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\System.Web.WebPages.Deployment.dll
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\System.Web.WebPages.dll
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\System.Web.WebPages.Razor.dll
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\WebGrease.dll
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\EntityFramework.xml
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\EntityFramework.SqlServer.xml
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\System.Web.Helpers.xml
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\System.Web.Mvc.xml
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\System.Web.Optimization.xml
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\System.Web.Razor.xml
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\System.Web.WebPages.xml
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\System.Web.WebPages.Deployment.xml
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\System.Web.WebPages.Razor.xml
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\Newtonsoft.Json.xml
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\Antlr3.Runtime.pdb
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\obj\Debug\Crafty.csproj.AssemblyReference.cache
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\obj\Debug\Crafty.csproj.CoreCompileInputs.cache
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\obj\Debug\Crafty.csproj.CopyComplete
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\obj\Debug\Crafty.dll
+D:\Music\3.2\3.2\SD LAB\SD\Crafty\Crafty\obj\Debug\Crafty.pdb
+G:\Project\project\SD\SD\Crafty\Crafty\bin\Crafty.dll.config
+G:\Project\project\SD\SD\Crafty\Crafty\bin\Crafty.dll
+G:\Project\project\SD\SD\Crafty\Crafty\bin\Crafty.pdb
+G:\Project\project\SD\SD\Crafty\Crafty\bin\roslyn\csc.exe
+G:\Project\project\SD\SD\Crafty\Crafty\bin\roslyn\csc.exe.config
+G:\Project\project\SD\SD\Crafty\Crafty\bin\roslyn\csc.rsp
+G:\Project\project\SD\SD\Crafty\Crafty\bin\roslyn\csi.exe
+G:\Project\project\SD\SD\Crafty\Crafty\bin\roslyn\csi.exe.config
+G:\Project\project\SD\SD\Crafty\Crafty\bin\roslyn\csi.rsp
+G:\Project\project\SD\SD\Crafty\Crafty\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+G:\Project\project\SD\SD\Crafty\Crafty\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+G:\Project\project\SD\SD\Crafty\Crafty\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+G:\Project\project\SD\SD\Crafty\Crafty\bin\roslyn\Microsoft.CodeAnalysis.dll
+G:\Project\project\SD\SD\Crafty\Crafty\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+G:\Project\project\SD\SD\Crafty\Crafty\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+G:\Project\project\SD\SD\Crafty\Crafty\bin\roslyn\Microsoft.CSharp.Core.targets
+G:\Project\project\SD\SD\Crafty\Crafty\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+G:\Project\project\SD\SD\Crafty\Crafty\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+G:\Project\project\SD\SD\Crafty\Crafty\bin\roslyn\Microsoft.Managed.Core.targets
+G:\Project\project\SD\SD\Crafty\Crafty\bin\roslyn\Microsoft.VisualBasic.Core.targets
+G:\Project\project\SD\SD\Crafty\Crafty\bin\roslyn\Microsoft.Win32.Primitives.dll
+G:\Project\project\SD\SD\Crafty\Crafty\bin\roslyn\System.AppContext.dll
+G:\Project\project\SD\SD\Crafty\Crafty\bin\roslyn\System.Collections.Immutable.dll
+G:\Project\project\SD\SD\Crafty\Crafty\bin\roslyn\System.Console.dll
+G:\Project\project\SD\SD\Crafty\Crafty\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+G:\Project\project\SD\SD\Crafty\Crafty\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+G:\Project\project\SD\SD\Crafty\Crafty\bin\roslyn\System.Diagnostics.StackTrace.dll
+G:\Project\project\SD\SD\Crafty\Crafty\bin\roslyn\System.Globalization.Calendars.dll
+G:\Project\project\SD\SD\Crafty\Crafty\bin\roslyn\System.IO.Compression.dll
+G:\Project\project\SD\SD\Crafty\Crafty\bin\roslyn\System.IO.Compression.ZipFile.dll
+G:\Project\project\SD\SD\Crafty\Crafty\bin\roslyn\System.IO.FileSystem.dll
+G:\Project\project\SD\SD\Crafty\Crafty\bin\roslyn\System.IO.FileSystem.Primitives.dll
+G:\Project\project\SD\SD\Crafty\Crafty\bin\roslyn\System.Net.Http.dll
+G:\Project\project\SD\SD\Crafty\Crafty\bin\roslyn\System.Net.Sockets.dll
+G:\Project\project\SD\SD\Crafty\Crafty\bin\roslyn\System.Reflection.Metadata.dll
+G:\Project\project\SD\SD\Crafty\Crafty\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+G:\Project\project\SD\SD\Crafty\Crafty\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+G:\Project\project\SD\SD\Crafty\Crafty\bin\roslyn\System.Security.Cryptography.Encoding.dll
+G:\Project\project\SD\SD\Crafty\Crafty\bin\roslyn\System.Security.Cryptography.Primitives.dll
+G:\Project\project\SD\SD\Crafty\Crafty\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+G:\Project\project\SD\SD\Crafty\Crafty\bin\roslyn\System.Text.Encoding.CodePages.dll
+G:\Project\project\SD\SD\Crafty\Crafty\bin\roslyn\System.Threading.Tasks.Extensions.dll
+G:\Project\project\SD\SD\Crafty\Crafty\bin\roslyn\System.ValueTuple.dll
+G:\Project\project\SD\SD\Crafty\Crafty\bin\roslyn\System.Xml.ReaderWriter.dll
+G:\Project\project\SD\SD\Crafty\Crafty\bin\roslyn\System.Xml.XmlDocument.dll
+G:\Project\project\SD\SD\Crafty\Crafty\bin\roslyn\System.Xml.XPath.dll
+G:\Project\project\SD\SD\Crafty\Crafty\bin\roslyn\System.Xml.XPath.XDocument.dll
+G:\Project\project\SD\SD\Crafty\Crafty\bin\roslyn\vbc.exe
+G:\Project\project\SD\SD\Crafty\Crafty\bin\roslyn\vbc.exe.config
+G:\Project\project\SD\SD\Crafty\Crafty\bin\roslyn\vbc.rsp
+G:\Project\project\SD\SD\Crafty\Crafty\bin\roslyn\VBCSCompiler.exe
+G:\Project\project\SD\SD\Crafty\Crafty\bin\roslyn\VBCSCompiler.exe.config
+G:\Project\project\SD\SD\Crafty\Crafty\bin\Antlr3.Runtime.dll
+G:\Project\project\SD\SD\Crafty\Crafty\bin\EntityFramework.dll
+G:\Project\project\SD\SD\Crafty\Crafty\bin\EntityFramework.SqlServer.dll
+G:\Project\project\SD\SD\Crafty\Crafty\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+G:\Project\project\SD\SD\Crafty\Crafty\bin\Microsoft.Web.Infrastructure.dll
+G:\Project\project\SD\SD\Crafty\Crafty\bin\Newtonsoft.Json.dll
+G:\Project\project\SD\SD\Crafty\Crafty\bin\System.Web.Helpers.dll
+G:\Project\project\SD\SD\Crafty\Crafty\bin\System.Web.Mvc.dll
+G:\Project\project\SD\SD\Crafty\Crafty\bin\System.Web.Optimization.dll
+G:\Project\project\SD\SD\Crafty\Crafty\bin\System.Web.Razor.dll
+G:\Project\project\SD\SD\Crafty\Crafty\bin\System.Web.WebPages.Deployment.dll
+G:\Project\project\SD\SD\Crafty\Crafty\bin\System.Web.WebPages.dll
+G:\Project\project\SD\SD\Crafty\Crafty\bin\System.Web.WebPages.Razor.dll
+G:\Project\project\SD\SD\Crafty\Crafty\bin\WebGrease.dll
+G:\Project\project\SD\SD\Crafty\Crafty\bin\EntityFramework.xml
+G:\Project\project\SD\SD\Crafty\Crafty\bin\EntityFramework.SqlServer.xml
+G:\Project\project\SD\SD\Crafty\Crafty\bin\System.Web.Helpers.xml
+G:\Project\project\SD\SD\Crafty\Crafty\bin\System.Web.Mvc.xml
+G:\Project\project\SD\SD\Crafty\Crafty\bin\System.Web.Optimization.xml
+G:\Project\project\SD\SD\Crafty\Crafty\bin\System.Web.Razor.xml
+G:\Project\project\SD\SD\Crafty\Crafty\bin\System.Web.WebPages.xml
+G:\Project\project\SD\SD\Crafty\Crafty\bin\System.Web.WebPages.Deployment.xml
+G:\Project\project\SD\SD\Crafty\Crafty\bin\System.Web.WebPages.Razor.xml
+G:\Project\project\SD\SD\Crafty\Crafty\bin\Newtonsoft.Json.xml
+G:\Project\project\SD\SD\Crafty\Crafty\bin\Antlr3.Runtime.pdb
+G:\Project\project\SD\SD\Crafty\Crafty\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+G:\Project\project\SD\SD\Crafty\Crafty\obj\Debug\Crafty.csproj.AssemblyReference.cache
+G:\Project\project\SD\SD\Crafty\Crafty\obj\Debug\Crafty.csproj.CoreCompileInputs.cache
+G:\Project\project\SD\SD\Crafty\Crafty\obj\Debug\Crafty.csproj.CopyComplete
+G:\Project\project\SD\SD\Crafty\Crafty\obj\Debug\Crafty.dll
+G:\Project\project\SD\SD\Crafty\Crafty\obj\Debug\Crafty.pdb
