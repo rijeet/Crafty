@@ -10,19 +10,19 @@
                 <i data-feather="home" class="align-self-center menu-icon icon-dual"></i>
             </a><!--end MetricaDashboards-->
 
-            <a href="#MetricaApps" class="nav-link" data-toggle="tooltip-custom" data-placement="right" data-trigger="hover" title="" data-original-title="Apps">
+            <a href="#MetricaApps" class="nav-link" data-toggle="tooltip-custom" data-placement="right" data-trigger="hover" title="" data-original-title="Product">
                 <i data-feather="grid" class="align-self-center menu-icon icon-dual"></i>
             </a><!--end MetricaApps-->
 
-            <a href="#MetricaUikit" class="nav-link" data-toggle="tooltip-custom" data-placement="right" data-trigger="hover" title="" data-original-title="UI Kit">
+            <a href="#MetricaUikit" class="nav-link" data-toggle="tooltip-custom" data-placement="right" data-trigger="hover" title="" data-original-title="Payment">
                 <i data-feather="package" class="align-self-center menu-icon icon-dual"></i>
             </a><!--end MetricaUikit-->
 
-            <a href="#MetricaPages" class="nav-link" data-toggle="tooltip-custom" data-placement="right" data-trigger="hover" title="" data-original-title="Pages">
+            <a href="#MetricaPages" class="nav-link" data-toggle="tooltip-custom" data-placement="right" data-trigger="hover" title="" data-original-title="Order">
                 <i data-feather="copy" class="align-self-center menu-icon icon-dual"></i>
             </a><!--end MetricaPages-->
 
-            <a href="#MetricaAuthentication" class="nav-link" data-toggle="tooltip-custom" data-placement="right" data-trigger="hover" title="" data-original-title="Authentication">
+            <a href="#MetricaAuthentication" class="nav-link" data-toggle="tooltip-custom" data-placement="right" data-trigger="hover" title="" data-original-title="User">
                 <i data-feather="lock" class="align-self-center menu-icon icon-dual"></i>
             </a> <!--end MetricaAuthentication-->
 
@@ -61,68 +61,57 @@
 
 		<div id="MetricaApps" class="main-icon-menu-pane">
 			<div class="title-box">
-				<h6 class="menu-title">Apps</h6>
+                <h6 class="menu-title">Product</h6>
 			</div>
-			<ul class="nav metismenu">
+			  <ul class="nav metismenu">
 				<li class="nav-item">
-					<a class="nav-link" href="javascript:void(0);"><span class="w-100">Analytics</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
-					<ul class="nav-second-level" aria-expanded="false">
-						<li><a href="@Url.Action("Index", "Dashboard")">Customers</a></li>
-						<li><a href="@Url.Action("Index", "Dashboard")">Reports</a></li>
-					</ul>
+					<a class="nav-link" href="javascript:void(0);"><span class="w-100">Product</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
+                    <ul class="nav-second-level" aria-expanded="false">
+                        <li><a href="@Url.Action("Index", "Dashboard")">Product List</a></li>
+                        <li><a href="@Url.Action("Index", "Dashboard")">Product Add</a></li>
+	                    <li><a href="@Url.Action("Index", "Dashboard")">Product Delete</a></li>
+	                    <li><a href="@Url.Action("Index", "Dashboard")">Product Update</a></li>
+                    </ul>
 				</li><!--end nav-item-->
 
-				<li class="nav-item">
-					<a class="nav-link" href="javascript:void(0);"><span class="w-100">Ecommerce</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
-					<ul class="nav-second-level" aria-expanded="false">
-						<li><a href="@Url.Action("Index", "Dashboard")">Products</a></li>
-						<li><a href="@Url.Action("Index", "Dashboard")">Product List</a></li>
-						<li><a href="@Url.Action("Index", "Dashboard")">Product Detail</a></li>
-						<li><a href="@Url.Action("Index", "Dashboard")">Cart</a></li>
-						<li><a href="@Url.Action("Index", "Dashboard")">Checkout</a></li>
-					</ul>
-				</li><!--end nav-item-->
-                    
-			</ul>
+			   </ul>
 
 			<div id="MetricaUikit" class="main-icon-menu-pane">
 				<div class="title-box">
-					<h6 class="menu-title">UI Kit</h6>
+					<h6 class="menu-title">PAYMENT</h6>
 				</div>
-				<ul class="nav metismenu">
 
+				<ul class="nav metismenu">
 					<li class="nav-item">
-						<a class="nav-link" href="javascript:void(0);"><span class="w-100">Ecommerce</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
+						<a class="nav-link" href="javascript:void(0);"><span class="w-100">Payment</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
 						<ul class="nav-second-level" aria-expanded="false">
-							<li><a href="@Url.Action("Index", "Dashboard")">Products</a></li>
-							<li><a href="@Url.Action("Index", "Dashboard")">Product List</a></li>
-							<li><a href="@Url.Action("Index", "Dashboard")">Product Detail</a></li>
-							<li><a href="@Url.Action("Index", "Dashboard")">Cart</a></li>
-							<li><a href="@Url.Action("Index", "Dashboard")">Checkout</a></li>
+							<li><a href="@Url.Action("Index", "Dashboard")">Payment List</a></li>
+							<li><a href="@Url.Action("Index", "Dashboard")">Payment Update</a></li>
 						</ul>
 					</li><!--end nav-item-->
+
 				</ul><!--end nav-->
 			</div><!-- end Others -->
 
+
 			<div id="MetricaPages" class="main-icon-menu-pane">
 				<div class="title-box">
-					<h6 class="menu-title">Pages</h6>
+                    <h6 class="menu-title">ORDER</h6>
 				</div>
-				<ul class="nav">
-					<li class="nav-item"><a class="nav-link" href="@Url.Action("Index", "Dashboard")">Profile</a></li>
-					<li class="nav-item"><a class="nav-link" href="@Url.Action("Index", "Dashboard")">Tour</a></li>
-					<li class="nav-item"><a class="nav-link" href="@Url.Action("Index", "Dashboard")">Timeline</a></li>
-					<li class="nav-item"><a class="nav-link" href="@Url.Action("Index", "Dashboard")">Treeview</a></li>
-					<li class="nav-item"><a class="nav-link" href="@Url.Action("Index", "Dashboard")">Starter Page</a></li>
-					<li class="nav-item"><a class="nav-link" href="@Url.Action("Index", "Dashboard")">Pricing</a></li>
-					<li class="nav-item"><a class="nav-link" href="@Url.Action("Index", "Dashboard")">Blogs</a></li>
-					<li class="nav-item"><a class="nav-link" href="@Url.Action("Index", "Dashboard")">FAQs</a></li>
-					<li class="nav-item"><a class="nav-link" href="@Url.Action("Index", "Dashboard")">Gallery</a></li>
-				</ul>
+				<ul class="nav metismenu">
+					<li class="nav-item">
+						<a class="nav-link" href="javascript:void(0);"><span class="w-100">Order</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
+						<ul class="nav-second-level" aria-expanded="false">
+							<li><a href="@Url.Action("Index", "Dashboard")">Order List</a></li>
+							<li><a href="@Url.Action("Index", "Dashboard")">Order Update</a></li>
+						</ul>
+					</li><!--end nav-item-->
+
+				</ul><!--end nav-->
 			</div><!-- end Pages -->
 			<div id="MetricaAuthentication" class="main-icon-menu-pane">
 				<div class="title-box">
-					<h6 class="menu-title">Authentication</h6>
+					<h6 class="menu-title">Customer</h6>
 				</div>
 				<ul class="nav">
 					<li class="nav-item"><a class="nav-link" href="@Url.Action("login", "authentication")">Log in</a></li>

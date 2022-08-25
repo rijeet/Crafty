@@ -20,6 +20,12 @@ namespace Crafty.Controllers
         {
             return View();
         }
+
+        public ActionResult Product_List()
+        {
+            var obj = db.Product_tbl.ToList();
+            return View(obj);
+        }
         [HttpGet]
         public ActionResult Display(User_tbl user)
         {

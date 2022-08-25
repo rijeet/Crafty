@@ -361,6 +361,7 @@
     <Content Include="Views\Shared\_top-bar.cshtml" />
     <Content Include="Views\Shared\_footer.cshtml" />
     <Content Include="Views\Shared\_right-bar.cshtml" />
+    <Content Include="Views\Dashboard\Product_List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
