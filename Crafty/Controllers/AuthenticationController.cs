@@ -49,7 +49,6 @@ namespace Crafty.Controllers
 
                     Session["userid"] = Auth.UserName;
                     return RedirectToAction("HomePage", "Home");
-                    // return RedirectToAction("Registration", "UserRegistration");
                 }
 
 
