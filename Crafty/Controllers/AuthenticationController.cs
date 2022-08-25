@@ -32,7 +32,7 @@ namespace Crafty.Controllers
                 //select Role from User_tbl where Username='Rijeet'
                 var credential1 = db.User_tbl.Where(u => u.Username == Auth.UserName).FirstOrDefault();
               
-         //UID = credential1.U_ID;
+         UID = credential1.U_ID;
         Console.WriteLine(credential);
                 if (credential == null)
                 {
@@ -42,7 +42,7 @@ namespace Crafty.Controllers
 
                 else if (credential1.Role == "Admin")
                 {
-                    return RedirectToAction("AddProduct", "Dashboard");
+                    return RedirectToAction("Index", "Dashboard");
                 }
                 else
                 {
