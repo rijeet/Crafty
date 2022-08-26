@@ -345,23 +345,18 @@
     <Content Include="Views\Cart_tbl\Details.cshtml" />
     <Content Include="Views\Cart_tbl\Edit.cshtml" />
     <Content Include="Views\Cart_tbl\Index.cshtml" />
-    <Content Include="Views\Dashboard\Edit.cshtml" />
-    <Content Include="Views\Dashboard\Delete.cshtml" />
-    <Content Include="Views\Dashboard\Details.cshtml" />
     <Content Include="Views\Dashboard\AddProduct.cshtml" />
     <Content Include="Views\Dashboard\EditProduct.cshtml" />
     <Content Include="Views\Dashboard\DeleteProduct.cshtml" />
-    <Content Include="Views\Dashboard\DetailsProduct.cshtml" />
-    <Content Include="Views\Dashboard\ShowProduct.cshtml" />
     <Content Include="Views\Home\HomePage.cshtml" />
     <Content Include="Views\Home\Product_tblShow.cshtml" />
-    <Content Include="Views\Dashboard\Profile.cshtml" />
     <Content Include="Views\Shared\_LayoutPageAdmin.cshtml" />
     <Content Include="Views\Shared\_leftbar-tab-menu.cshtml" />
     <Content Include="Views\Shared\_top-bar.cshtml" />
     <Content Include="Views\Shared\_footer.cshtml" />
     <Content Include="Views\Shared\_right-bar.cshtml" />
     <Content Include="Views\Dashboard\Product_List.cshtml" />
+    <Content Include="Views\Dashboard\Profile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

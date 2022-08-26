@@ -1,105 +1,80 @@
 ﻿@model Crafty.Models.User_tbl
 
-<div>
-    <h4>User_tbl</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Image)
-        </dt>
+@{
+	Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
+}
 
-        <dd>
-            @Html.DisplayFor(model => model.Image)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Firstname)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Firstname)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Lastname)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Lastname)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Phone)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Phone)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Mail)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Mail)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Dateofbirth)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Dateofbirth)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Address)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Address)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Gender)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Gender)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Username)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Username)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Password)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Password)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CreatedOn)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CreatedOn)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Role)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Role)
-        </dd>
-
-    </dl>
+@section styles {
+    <link href="~/plugins/dropify/css/dropify.min.css" rel="stylesheet">
+    <link href="~/plugins/filter/magnific-popup.css" rel="stylesheet" type="text/css" />
+    <link href="~/plugins/lightpick/lightpick.css" rel="stylesheet" />
+}
+<!-- Page-Title -->
+<div class="row">
+    <div class="col-sm-12">
+        <div class="page-title-box">
+            <div class="float-right">
+            </div>
+            <h4 class="page-title">Profile</h4>
+        </div><!--end page-title-box-->
+    </div><!--end col-->
 </div>
+<!-- end page title end breadcrumb -->
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body  met-pro-bg">
+                <div class="met-profile">
+                    <div class="row">
+                        <div class="col-lg-4 align-self-center mb-3 mb-lg-0">
+                            <div class="met-profile-main">
+                                <div class="met-profile-main-pic">
 
+                                    <img src="@Url.Content(Model.Image)" alt="" class="rounded-circle" height="128">
+                                    <span class="fro-profile_main-pic-change">
+                                        <i class="fas fa-camera"></i>
+                                    </span>
+                                </div>
+                                <div class="met-profile_user-detail">
+                                    <h5 class="met-user-name">@Html.DisplayFor(model => model.Firstname) @Html.DisplayFor(model => model.Lastname)</h5>  
+	                                <p class="mb-0 met-user-name-post"> @Html.DisplayFor(model => model.Role)</p>
+                                </div>
+                            </div>
+                        </div><!--end col-->
+                        <div class="col-lg-4 ml-auto">
+                            <ul class="list-unstyled personal-detail">
+                                <li class=""><i class="dripicons-phone mr-2 text-info font-18"></i> <b> phone </b> :   @Html.DisplayFor(model => model.Phone) </li>
+                                <li class="mt-2"><i class="dripicons-mail text-info font-18 mt-2 mr-2"></i> <b> Email </b> :   @Html.DisplayFor(model => model.Mail)</li>
+                                <li class="mt-2"><i class="dripicons-location text-info font-18 mt-2 mr-2"></i> <b>Location</b> :   @Html.DisplayFor(model => model.Address)</li>
+                            </ul>
+                            <div class="button-list btn-social-icon">
+                                <button type="button" class="btn btn-blue btn-circle">
+                                    <i class="fab fa-facebook-f"></i>
+                                </button>
+
+                                <button type="button" class="btn btn-secondary btn-circle ml-2">
+                                    <i class="fab fa-twitter"></i>
+                                </button>
+
+                                <button type="button" class="btn btn-pink btn-circle  ml-2">
+                                    <i class="fab fa-dribbble"></i>
+                                </button>
+                            </div>
+                        </div><!--end col-->
+                    </div><!--end row-->
+                </div><!--end f_profile-->
+            </div><!--end card-body-->
+        </div><!--end card-->
+    </div><!--end col-->
+</div><!--end row-->
+@section scripts {
+    <script src="~/plugins/dropify/js/dropify.min.js"></script>
+    <script src="~/plugins/moment/moment.js"></script>
+    <script src="~/plugins/filter/isotope.pkgd.min.js"></script>
+    <script src="~/plugins/filter/masonry.pkgd.min.js"></script>
+    <script src="~/plugins/filter/jquery.magnific-popup.min.js"></script>
+    <script src="~/plugins/chartjs/chart.min.js"></script>
+    <script src="~/plugins/chartjs/roundedBar.min.js"></script>
+    <script src="~/plugins/lightpick/lightpick.js"></script>
+    <script src="~/scripts/pages/jquery.profile.init.js"></script>
+}

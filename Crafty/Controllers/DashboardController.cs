@@ -11,13 +11,24 @@ namespace Crafty.Controllers
     public class DashboardController : Controller
     {
         Crafty_DBEntities1 db = new Crafty_DBEntities1();
+        int U_ID= Crafty.Controllers.AuthenticationController.UID;
         // GET: Dashboard
         public ActionResult Index()
         {
             return View();
         }
+
+        [HttpGet]
         public ActionResult Profile()
         {
+            var obj = db.User_tbl.Find(U_ID);
+            return View(obj);
+        }
+        [HttpPost]
+        public ActionResult Profile(User_tbl user)
+        {
+            db.Entry(user).State = System.Data.Entity.EntityState.Modified;
+            db.SaveChanges();
             return View();
         }
 
@@ -27,37 +38,21 @@ namespace Crafty.Controllers
             return View(obj);
         }
         [HttpGet]
-        public ActionResult Display(User_tbl user)
+        public ActionResult UserDisplay(User_tbl user)
         {
             var obj = db.User_tbl.ToList();
             return View(obj);
         }
 
 
-
         [HttpGet]
-        public ActionResult Edit(int id)
+        public ActionResult UserDelete(int id)
         {
             var obj = db.User_tbl.Find(id);
             return View(obj);
         }
         [HttpPost]
-        public ActionResult Edit(User_tbl user)
-        {
-            db.Entry(user).State = System.Data.Entity.EntityState.Modified;
-            db.SaveChanges();
-            return View();
-        }
-
-
-        [HttpGet]
-        public ActionResult Delete(int id)
-        {
-            var obj = db.User_tbl.Find(id);
-            return View(obj);
-        }
-        [HttpPost]
-        public ActionResult Delete(User_tbl user)
+        public ActionResult UserDelete(User_tbl user)
         {
             db.Entry(user).State = System.Data.Entity.EntityState.Deleted;
             db.SaveChanges();
@@ -66,7 +61,7 @@ namespace Crafty.Controllers
 
 
         [HttpGet]
-        public ActionResult Details(int id)
+        public ActionResult UserDetails(int id)
         {
             var obj = db.User_tbl.Find(id);
             return View(obj);
@@ -98,12 +93,7 @@ namespace Crafty.Controllers
         }
 
 
-        [HttpGet]
-        public ActionResult ShowProduct()
-        {
-            var obj = db.Product_tbl.ToList();
-            return View(obj);
-        }
+       
 
 
 
