@@ -1,4 +1,7 @@
-﻿<div class="leftbar-tab-menu">
+﻿
+@using Crafty.Models
+@model IEnumerable<Crafty.Models.User_tbl>
+<div class="leftbar-tab-menu">
     <div class="main-icon-menu slimscroll-menu">
         <a href="@Url.Action("Index", "Dashboard")" class="logo logo-metrica d-block text-center">
             <span>
@@ -37,92 +40,92 @@
         </div>
     </div><!--end main-icon-menu-->
 
-<div class="main-menu-inner">
-	<!-- LOGO -->
-	<div class="topbar-left">
-		<a href="@Url.Action("Index", "Dashboard")" class="logo">
-			<span>
-				<img src="~/images/logo-dark.png" alt="logo-large" class="logo-lg logo-dark">
-				<img src="~/images/logo.png" alt="logo-large" class="logo-lg logo-light">
-			</span>
-		</a>
-	</div>
-	<!--end logo-->
-	<div class="menu-body slimscroll">
-		<div id="MetricaDashboard" class="main-icon-menu-pane">
-			<div class="title-box">
-				<h6 class="menu-title">Dashboard</h6>
-			</div>
-			<ul class="nav">
-				<li class="nav-item"><a class="nav-link" href="@Url.Action("Index", "Dashboard")">Analytics</a></li>
-                    
-			</ul>
-			<ul class="nav">
-				<li class="nav-item"><a class="nav-link" href="@Url.Action("login", "authentication")">Customer List</a></li>
-
-			</ul>
-		</div><!-- end Dashboards -->
-
-        <div id="MetricaApps" class="main-icon-menu-pane">
-            <div class="title-box">
-                <h6 class="menu-title">Product</h6>
-            </div>
-            <ul class="nav metismenu">
-                <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0);"><span class="w-100">Product</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
-                    <ul class="nav-second-level" aria-expanded="false">
-                        <li><a href="@Url.Action("Index", "Dashboard")">Product List</a></li>
-                        <li><a href="@Url.Action("Index", "Dashboard")">Product Add</a></li>
-
-                    </ul>
-                </li><!--end nav-item-->
-
-            </ul>
-
-            <div id="MetricaUikit" class="main-icon-menu-pane">
+    <div class="main-menu-inner">
+        <!-- LOGO -->
+        <div class="topbar-left">
+            <a href="@Url.Action("Index", "Dashboard")" class="logo">
+                <span>
+                    <img src="~/images/logo-dark.png" alt="logo-large" class="logo-lg logo-dark">
+                    <img src="~/images/logo.png" alt="logo-large" class="logo-lg logo-light">
+                </span>
+            </a>
+        </div>
+        <!--end logo-->
+        <div class="menu-body slimscroll">
+            <div id="MetricaDashboard" class="main-icon-menu-pane">
                 <div class="title-box">
-                    <h6 class="menu-title">PAYMENT</h6>
-                </div>
-
-                <ul class="nav metismenu">
-                    <li class="nav-item">
-                        <a class="nav-link" href="javascript:void(0);"><span class="w-100">Payment</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
-                        <ul class="nav-second-level" aria-expanded="false">
-                            <li><a href="@Url.Action("Index", "Dashboard")">Payment List</a></li>
-
-                        </ul>
-                    </li><!--end nav-item-->
-
-                </ul><!--end nav-->
-            </div><!-- end Others -->
-
-
-            <div id="MetricaPages" class="main-icon-menu-pane">
-                <div class="title-box">
-                    <h6 class="menu-title">ORDER</h6>
-                </div>
-                <ul class="nav metismenu">
-                    <li class="nav-item">
-                        <a class="nav-link" href="javascript:void(0);"><span class="w-100">Order</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
-                        <ul class="nav-second-level" aria-expanded="false">
-                            <li><a href="@Url.Action("Index", "Dashboard")">Order List</a></li>
-                        </ul>
-                    </li><!--end nav-item-->
-
-                </ul><!--end nav-->
-            </div><!-- end Pages -->
-            <div id="MetricaAuthentication" class="main-icon-menu-pane">
-                <div class="title-box">
-                    <h6 class="menu-title">Cart</h6>
+                    <h6 class="menu-title">Dashboard</h6>
                 </div>
                 <ul class="nav">
-                    <li class="nav-item"><a class="nav-link" href="@Url.Action("login", "authentication")">Cart List</a></li>
+                    <li class="nav-item"><a class="nav-link" href="@Url.Action("Index", "Dashboard")">Analytics</a></li>
 
                 </ul>
-            </div><!-- end Authentication-->
+                <ul class="nav">
+                    <li class="nav-item"><a class="nav-link" href="@Url.Action("login", "authentication")">Customer List</a></li>
 
-           
-        </div><!--end menu-body-->
-	</div><!-- end main-menu-inner-->
-  </div>
+                </ul>
+            </div><!-- end Dashboards -->
+
+            <div id="MetricaApps" class="main-icon-menu-pane">
+                <div class="title-box">
+                    <h6 class="menu-title">Product</h6>
+                </div>
+                <ul class="nav metismenu">
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0);"><span class="w-100">Product</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
+                        <ul class="nav-second-level" aria-expanded="false">
+                            <li><a href="@Url.Action("Index", "Dashboard")">Product List</a></li>
+                            <li><a href="@Url.Action("Index", "Dashboard")">Product Add</a></li>
+
+                        </ul>
+                    </li><!--end nav-item-->
+
+                </ul>
+
+                <div id="MetricaUikit" class="main-icon-menu-pane">
+                    <div class="title-box">
+                        <h6 class="menu-title">PAYMENT</h6>
+                    </div>
+
+                    <ul class="nav metismenu">
+                        <li class="nav-item">
+                            <a class="nav-link" href="javascript:void(0);"><span class="w-100">Payment</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
+                            <ul class="nav-second-level" aria-expanded="false">
+                                <li><a href="@Url.Action("Index", "Dashboard")">Payment List</a></li>
+
+                            </ul>
+                        </li><!--end nav-item-->
+
+                    </ul><!--end nav-->
+                </div><!-- end Others -->
+
+
+                <div id="MetricaPages" class="main-icon-menu-pane">
+                    <div class="title-box">
+                        <h6 class="menu-title">ORDER</h6>
+                    </div>
+                    <ul class="nav metismenu">
+                        <li class="nav-item">
+                            <a class="nav-link" href="javascript:void(0);"><span class="w-100">Order</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
+                            <ul class="nav-second-level" aria-expanded="false">
+                                <li><a href="@Url.Action("Index", "Dashboard")">Order List</a></li>
+                            </ul>
+                        </li><!--end nav-item-->
+
+                    </ul><!--end nav-->
+                </div><!-- end Pages -->
+                <div id="MetricaAuthentication" class="main-icon-menu-pane">
+                    <div class="title-box">
+                        <h6 class="menu-title">Cart</h6>
+                    </div>
+                    <ul class="nav">
+                        <li class="nav-item"><a class="nav-link" href="@Url.Action("login", "authentication")">Cart List</a></li>
+
+                    </ul>
+                </div><!-- end Authentication-->
+
+
+            </div><!--end menu-body-->
+        </div><!-- end main-menu-inner-->
+    </div>
 </div>

@@ -15,20 +15,40 @@ namespace Crafty.Controllers
         // GET: Dashboard
         public ActionResult Index()
         {
+            try
+            {
+                if (Session["Role"] == null)
+                {
+                    return RedirectToAction("Login", "Authentication");
+                }
+            }
+            catch
+            {
+                return RedirectToAction("Login", "Authentication");
+            }
             return View();
         }
 
         [HttpGet]
-        public ActionResult Profile()
+        public new ActionResult Profile()
         {
             var obj = db.User_tbl.Find(U_ID);
             return View(obj);
         }
         [HttpPost]
-        public ActionResult Profile(User_tbl user)
+        public new ActionResult Profile(User_tbl user)
         {
+           string filename = Path.GetFileNameWithoutExtension(user.ImageFile.FileName);
+            string extension = Path.GetExtension(user.ImageFile.FileName);
+           filename = filename + DateTime.Now.ToString("yymmssfff") + extension;
+           user.Image = "~/img/UserImg/" + filename;
+         filename = Path.Combine(Server.MapPath("~/img/UserImg/"), filename);
+         user.ImageFile.SaveAs(filename);
+            
             db.Entry(user).State = System.Data.Entity.EntityState.Modified;
             db.SaveChanges();
+          //  db.User_tbl.Add(user);
+           // db.SaveChanges();
             return View();
         }
 
@@ -38,6 +58,7 @@ namespace Crafty.Controllers
             return View(obj);
         }
         [HttpGet]
+
         public ActionResult UserDisplay(User_tbl user)
         {
             var obj = db.User_tbl.ToList();
