@@ -15,6 +15,7 @@ namespace Crafty.Controllers
         // GET: Dashboard
         public ActionResult Index()
         {
+            
             try
             {
                 if (Session["Role"] == null)
@@ -26,7 +27,10 @@ namespace Crafty.Controllers
             {
                 return RedirectToAction("Login", "Authentication");
             }
-            return View();
+
+            ViewBag.P_ID = new SelectList(db.Order_tbl, "P_ID", "P_ID");
+            var obj = db.Order_tbl.ToList();
+            return View(obj);
         }
 
         [HttpGet]
@@ -108,7 +112,7 @@ namespace Crafty.Controllers
             {
                 db.Product_tbl.Add(product);
                 db.SaveChanges();
-               
+                return RedirectToAction("Product_List", "Dashboard");
             }
             return View();
         }
