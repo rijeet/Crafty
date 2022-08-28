@@ -1,6 +1,4 @@
 ﻿
-@using Crafty.Models
-@model IEnumerable<Crafty.Models.User_tbl>
 <div class="leftbar-tab-menu">
     <div class="main-icon-menu slimscroll-menu">
         <a href="@Url.Action("Index", "Dashboard")" class="logo logo-metrica d-block text-center">
@@ -25,7 +23,7 @@
                 <i data-feather="copy" class="align-self-center menu-icon icon-dual"></i>
             </a><!--end MetricaPages-->
 
-            <a href="#MetricaAuthentication" class="nav-link" data-toggle="tooltip-custom" data-placement="right" data-trigger="hover" title="" data-original-title="User">
+            <a href="#MetricaAuthentication" class="nav-link" data-toggle="tooltip-custom" data-placement="right" data-trigger="hover" title="" data-original-title="Cart">
                 <i data-feather="lock" class="align-self-center menu-icon icon-dual"></i>
             </a> <!--end MetricaAuthentication-->
 
@@ -74,9 +72,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="javascript:void(0);"><span class="w-100">Product</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
                         <ul class="nav-second-level" aria-expanded="false">
-                            <li><a href="@Url.Action("Index", "Dashboard")">Product List</a></li>
-                            <li><a href="@Url.Action("Index", "Dashboard")">Product Add</a></li>
 
+                            <li><a href="@Url.Action("AddProduct", "Dashboard")">Product Add</a></li>
+	                        <li><a href="@Url.Action("Product_List", "Dashboard")">Product List</a></li>
                         </ul>
                     </li><!--end nav-item-->
 
