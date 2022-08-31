@@ -225,15 +225,29 @@
 
              select g.Key).Take(3).ToList();
 
-
+	    
 
     }
 
     @foreach (var item in query)
     {
         var user = db.User_tbl.Where(x => x.U_ID == item.Value).FirstOrDefault();
-       
-       
+        string amoun = null;
+
+        foreach (var iteem in Model)
+        {
+
+
+            var amount = db.Order_tbl.Where(x => x.U_ID == item.Value).Sum(x=>x.Total);
+
+
+            //amoun += Convert.ToInt32(amount.Total);
+
+	        amoun = Convert.ToString(amount);
+
+        }
+
+
         <div class="col-lg-4">
             <div class="card">
                 <div class="card-body dash-info-carousel">
@@ -249,8 +263,8 @@
                                     </div>
                                     <div class="media-body align-self-center text-truncate ml-3">
                                          <h4 class="mt-0 font-weight-semibold text-dark font-24">@Url.Content(user.Username)</h4>
-                                        <p class="text-muted text-uppercase mb-0 font-12">Total Revenue Of This Month</p>
-                                        <h4 class="font-18 text-success font-weight-semibold">$30,125.00</h4>
+                                        <p class="text-muted text-uppercase mb-0 font-12">Total Buy</p>
+                                        <h4 class="font-18 text-success font-weight-semibold">$@Url.Content(Convert.ToString(amoun))</h4>
                                     </div><!--end media-body-->
                                 </div><!--end media-->
                             </div><!--end carousel-item-->
