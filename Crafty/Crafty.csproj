@@ -360,6 +360,8 @@
     <Content Include="Views\Dashboard\UserDisplay.cshtml" />
     <Content Include="Views\Dashboard\DetailsProduct.cshtml" />
     <Content Include="Views\Cart_tbl\list.cshtml" />
+    <Content Include="Views\Dashboard\Order_tbl.cshtml" />
+    <Content Include="Views\Dashboard\EditOrder.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

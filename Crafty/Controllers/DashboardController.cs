@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Runtime.InteropServices;
 using System.Web;
 using System.Web.Mvc;
@@ -31,15 +33,16 @@ namespace Crafty.Controllers
             }
            
             ViewBag.P_ID = new SelectList(db.Order_tbl, "P_ID", "P_ID");
-           
-              
+
+            ViewBag.U_ID = new SelectList(db.User_tbl, "U_ID", "Username");
 
 
 
 
-               
-          
-                var obj = db.Order_tbl.ToList();
+
+
+            // var obj = db.Order_tbl.ToList();
+            var obj = db.Order_tbl.Include(o => o.Cart_tbl).Include(o => o.Product_tbl).Include(o => o.Payment_tbl).Include(o => o.User_tbl);
             return View(obj);
         }
 
@@ -171,5 +174,55 @@ namespace Crafty.Controllers
             return View(obj);
         }
 
+
+        public ActionResult Order_tbl()
+        {
+            var obj = db.Order_tbl.ToList();
+            return View(obj);
+        }
+
+        [HttpGet]
+        public ActionResult EditOrder(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Order_tbl order_tbl = db.Order_tbl.Find(id);
+            if (order_tbl == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.Cart_ID = new SelectList(db.Cart_tbl, "Cart_ID", "Cart_ID", order_tbl.Cart_ID);
+            ViewBag.P_ID = new SelectList(db.Product_tbl, "P_ID", "Product_Name", order_tbl.P_ID);
+            ViewBag.Pay_ID = new SelectList(db.Payment_tbl, "Pay_ID", "Pay_Method", order_tbl.Pay_ID);
+            ViewBag.U_ID = new SelectList(db.User_tbl, "U_ID", "Image", order_tbl.U_ID);
+
+
+
+
+            var obj = db.Order_tbl.Find(id);
+            return View(obj);
+        }
+        
+        
+            [HttpPost]
+            [ValidateAntiForgeryToken]
+            public ActionResult EditOrder([Bind(Include = "Order_ID,Order_Date,Total,Order_Status,U_ID,P_ID,Cart_ID,Pay_ID")] Order_tbl order)
+            {
+                if (ModelState.IsValid)
+                {
+                    db.Entry(order).State = EntityState.Modified;
+                    db.SaveChanges();
+                return RedirectToAction("EditOrder", "Dashboard");
+            }
+                ViewBag.Cart_ID = new SelectList(db.Cart_tbl, "Cart_ID", "Cart_ID", order.Cart_ID);
+                ViewBag.P_ID = new SelectList(db.Product_tbl, "P_ID", "Product_Name", order.P_ID);
+                ViewBag.Pay_ID = new SelectList(db.Payment_tbl, "Pay_ID", "Pay_Method", order.Pay_ID);
+                ViewBag.U_ID = new SelectList(db.User_tbl, "U_ID", "Image", order.U_ID);
+                return View(order);
+            }
+
+        
     }
 }
