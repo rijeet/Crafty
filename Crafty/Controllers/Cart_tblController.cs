@@ -35,6 +35,11 @@ namespace Crafty.Controllers
             }
             return View(cart_tbl);
         }
+        public ActionResult list()
+        {
+           
+            return View();
+        }
 
         // GET: Cart_tbl/Create
         public ActionResult Create()

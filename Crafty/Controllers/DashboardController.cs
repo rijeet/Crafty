@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Web;
 using System.Web.Mvc;
 using Crafty.Models;
@@ -27,9 +29,17 @@ namespace Crafty.Controllers
             {
                 return RedirectToAction("Login", "Authentication");
             }
-
+           
             ViewBag.P_ID = new SelectList(db.Order_tbl, "P_ID", "P_ID");
-            var obj = db.Order_tbl.ToList();
+           
+              
+
+
+
+
+               
+          
+                var obj = db.Order_tbl.ToList();
             return View(obj);
         }
 
