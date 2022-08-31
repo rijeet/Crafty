@@ -300,51 +300,75 @@
                 <div class="card-body">
                     <h4 class="mt-0 header-title mb-3">Populer Product</h4>
                     <div class="table-responsive">
-                        <table class="table table-hover mb-0">
-                            <tbody>
-                                <tr>
-                                    <td class="border-top-0">
-                                        <div class="media">
-                                            <img src="~/images/products/img-7.png" height="80" class="mr-4" alt="...">
-                                            <div class="media-body align-self-center">
-                                                <span class="badge badge-soft-warning p-2 font-12 mb-2">354 sold</span>
-                                                <h4 class="mt-0 title-text mb-0">Unique Watch</h4>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="text-right border-top-0">
-                                        <h5 class="">$99.00</h5>
-                                    </td>
-                                </tr><!--/tr-->
-                                <tr>
-                                    <td>
-                                        <div class="media">
-                                            <img src="~/images/products/img-1.png" height="80" class="mr-4" alt="...">
-                                            <div class="media-body align-self-center">
-                                                <span class="badge badge-soft-pink p-2 font-12 mb-2">654 sold</span>
-                                                <h4 class="mt-0 title-text mb-0">Sport Shoe</h4>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="text-right">
-                                        <h5 class="">$49.00</h5>
-                                    </td>
-                                </tr><!--/tr-->
-                                <tr>
-                                    <td>
-                                        <div class="media">
-                                            <img src="~/images/products/img-4.png" height="80" class="mr-4" alt="...">
-                                            <div class="media-body align-self-center">
-                                                <span class="badge badge-soft-success p-2 font-12 mb-2">551 sold</span>
-                                                <h4 class="mt-0 title-text mb-0">Unique Watch</h4>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="text-right">
-                                        <h5 class="">$59.00</h5>
-                                    </td>
-                                </tr><!--/tr-->
-                            </tbody>
+	                    <table class="table table-hover mb-0">
+
+
+
+                        @{
+
+
+
+                            var queryp =
+
+                                (from item in db.Order_tbl
+
+                                 group item.Total by item.P_ID into g
+
+                                 orderby g.Sum() descending
+
+                                 select g.Key).Take(3).ToList();
+
+
+
+                        }
+
+                        @foreach (var itm in queryp)
+                        {
+                            var user = db.Product_tbl.Where(x => x.P_ID == itm.Value).FirstOrDefault();
+                            string amoun = null;
+
+                            foreach (var iteeem in Model)
+                            {
+
+
+                                var amount = db.Order_tbl.Where(x => x.P_ID == itm.Value).Sum(x => x.Total);
+
+
+                                //amoun += Convert.ToInt32(amount.Total);
+
+                                amoun = Convert.ToString(amount);
+
+                            }
+
+	                        <tbody>
+	                        <tr>
+		                        <td class="border-top-0">
+			                        <div class="media">
+				                        <img src="@Url.Content(user.Product_Image)" height="80" class="mr-4" alt="...">
+				                        <div class="media-body align-self-center">
+                                            <span class="badge badge-soft-warning p-2 font-12 mb-2">@Url.Content(Convert.ToString(user.Product_Sold)) sold</span>
+                                            <h4 class="mt-0 title-text mb-0">@Url.Content(user.Product_Name)</h4>
+				                        </div>
+			                        </div>
+		                        </td>
+		                        <td class="text-right border-top-0">
+                                    <h5 class="">$@Url.Content(user.Product_Base_Price)</h5>
+		                        </td>
+	                        </tr><!--/tr-->
+	                        </tbody>
+                           
+
+
+                        }
+
+
+
+
+
+
+
+                       
+                           
                         </table>
                     </div>
                 </div><!--end card-body-->
