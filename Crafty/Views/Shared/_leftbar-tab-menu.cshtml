@@ -55,11 +55,11 @@
                     <h6 class="menu-title">Dashboard</h6>
                 </div>
                 <ul class="nav">
-                    <li class="nav-item"><a class="nav-link" href="@Url.Action("Index", "Dashboard")">Analytics</a></li>
+                    <li class="nav-item"><a class="nav-link" href="@Url.Action("Index", "Dashboard")">Index</a></li>
 
                 </ul>
                 <ul class="nav">
-                    <li class="nav-item"><a class="nav-link" href="@Url.Action("login", "authentication")">Customer List</a></li>
+                    <li class="nav-item"><a class="nav-link" href="@Url.Action("Customer", "Dashboard")">Customer List</a></li>
 
                 </ul>
             </div><!-- end Dashboards -->
@@ -89,7 +89,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="javascript:void(0);"><span class="w-100">Payment</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
                             <ul class="nav-second-level" aria-expanded="false">
-                                <li><a href="@Url.Action("Index", "Dashboard")">Payment List</a></li>
+                                <li><a href="@Url.Action("PaymentList", "Dashboard")">Payment List</a></li>
 
                             </ul>
                         </li><!--end nav-item-->
@@ -117,7 +117,7 @@
                         <h6 class="menu-title">Cart</h6>
                     </div>
                     <ul class="nav">
-                        <li class="nav-item"><a class="nav-link" href="@Url.Action("login", "authentication")">Cart List</a></li>
+                        <li class="nav-item"><a class="nav-link" href="@Url.Action("CartList", "Dashboard")">Cart List</a></li>
 
                     </ul>
                 </div><!-- end Authentication-->

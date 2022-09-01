@@ -1,5 +1,9 @@
 ﻿@model Crafty.Models.Order_tbl
 
+@{
+	Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()

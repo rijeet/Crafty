@@ -242,7 +242,7 @@ namespace Crafty.Controllers
                 {
                     db.Entry(order).State = EntityState.Modified;
                     db.SaveChanges();
-                    return RedirectToAction("EditOrder", "Dashboard");
+                    return RedirectToAction("Order_tbl", "Dashboard");
                 }
                 ViewBag.Cart_ID = new SelectList(db.Cart_tbl, "Cart_ID", "Cart_ID", order.Cart_ID);
                 ViewBag.P_ID = new SelectList(db.Product_tbl, "P_ID", "Product_Name", order.P_ID);
@@ -261,10 +261,85 @@ namespace Crafty.Controllers
 
         public ActionResult Customer()
         {
-            
+            try
+            {
+                if (Session["Role"] == null)
+                {
+                    return RedirectToAction("Login", "Authentication");
+                }
+            }
+            catch
+            {
+                return RedirectToAction("Login", "Authentication");
+            }
             var obj = db.User_tbl.Include(o => o.Cart_tbl).Include(o => o.Payment_tbl).Include(o => o.Order_tbl).ToList();
             
             return View(obj);
+        }
+
+        public ActionResult CartList()
+        {
+            try
+            {
+                if (Session["Role"] == null)
+                {
+                    return RedirectToAction("Login", "Authentication");
+                }
+            }
+            catch
+            {
+                return RedirectToAction("Login", "Authentication");
+            }
+            var obj = db.Cart_tbl.Include(c => c.Product_tbl).Include(c => c.User_tbl).ToList();
+            
+
+            return View(obj);
+        }
+
+        public ActionResult PaymentList()
+        {
+            
+
+            var obj = db.Payment_tbl.Include(p => p.Cart_tbl).Include(p => p.Product_tbl).Include(p => p.User_tbl).ToList();
+            return View(obj);
+        }
+
+
+        // GET: Payment_tbl/Edit/5
+        public ActionResult EditPayment(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Payment_tbl payment_tbl = db.Payment_tbl.Find(id);
+            if (payment_tbl == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.Cart_ID = new SelectList(db.Cart_tbl, "Cart_ID", "Cart_ID", payment_tbl.Cart_ID);
+            ViewBag.P_ID = new SelectList(db.Product_tbl, "P_ID", "Product_Name", payment_tbl.P_ID);
+            ViewBag.U_ID = new SelectList(db.User_tbl, "U_ID", "Image", payment_tbl.U_ID);
+            return View(payment_tbl);
+        }
+
+        // POST: Payment_tbl/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditPayment([Bind(Include = "Pay_ID,Pay_Method,Bkash_Number,Transaction_ID,Pay_Date,Pay_Status,Pay_Amount,Cart_ID,P_ID,U_ID")] Payment_tbl payment_tbl)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(payment_tbl).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            ViewBag.Cart_ID = new SelectList(db.Cart_tbl, "Cart_ID", "Cart_ID", payment_tbl.Cart_ID);
+            ViewBag.P_ID = new SelectList(db.Product_tbl, "P_ID", "Product_Name", payment_tbl.P_ID);
+            ViewBag.U_ID = new SelectList(db.User_tbl, "U_ID", "Image", payment_tbl.U_ID);
+            return View(payment_tbl);
         }
 
     }
