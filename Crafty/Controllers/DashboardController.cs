@@ -49,6 +49,20 @@ namespace Crafty.Controllers
         [HttpGet]
         public new ActionResult Profile()
         {
+
+
+            try
+            {
+                if (Session["Role"] == null)
+                {
+                    return RedirectToAction("Login", "Authentication");
+                }
+            }
+            catch
+            {
+                return RedirectToAction("Login", "Authentication");
+            }
+            
             var obj = db.User_tbl.Find(U_ID);
             return View(obj);
         }
@@ -71,44 +85,42 @@ namespace Crafty.Controllers
 
         public ActionResult Product_List()
         {
+            try
+            {
+                if (Session["Role"] == null)
+                {
+                    return RedirectToAction("Login", "Authentication");
+                }
+            }
+            catch
+            {
+                return RedirectToAction("Login", "Authentication");
+            }
+            
             var obj = db.Product_tbl.ToList();
             return View(obj);
         }
-        [HttpGet]
+      
 
-        public ActionResult UserDisplay(User_tbl user)
-        {
-            var obj = db.User_tbl.ToList();
-            return View(obj);
-        }
+       
 
 
-        [HttpGet]
-        public ActionResult UserDelete(int id)
-        {
-            var obj = db.User_tbl.Find(id);
-            return View(obj);
-        }
-        [HttpPost]
-        public ActionResult UserDelete(User_tbl user)
-        {
-            db.Entry(user).State = System.Data.Entity.EntityState.Deleted;
-            db.SaveChanges();
-            return View();
-        }
-
-
-        [HttpGet]
-        public ActionResult UserDetails(int id)
-        {
-            var obj = db.User_tbl.Find(id);
-            return View(obj);
-        }
 
         [HttpGet]
 
         public ActionResult AddProduct()
         {
+            try
+            {
+                if (Session["Role"] == null)
+                {
+                    return RedirectToAction("Login", "Authentication");
+                }
+            }
+            catch
+            {
+                return RedirectToAction("Login", "Authentication");
+            }
             return View();
         }
         [HttpPost]
@@ -138,6 +150,18 @@ namespace Crafty.Controllers
         [HttpGet]
         public ActionResult EditProduct(int id)
         {
+            try
+            {
+                if (Session["Role"] == null)
+                {
+                    return RedirectToAction("Login", "Authentication");
+                }
+            }
+            catch
+            {
+                return RedirectToAction("Login", "Authentication");
+            }
+            
             var obj = db.Product_tbl.Find(id);
             return View(obj);
         }
@@ -151,32 +175,24 @@ namespace Crafty.Controllers
 
 
 
-        [HttpGet]
-        public ActionResult DeleteProduct(int id)
-        {
-            var obj = db.Product_tbl.Find(id);
-            db.Product_tbl.Remove(obj);
-           db.SaveChanges();
-            return View(obj);
-        }
-        [HttpPost]
-        public ActionResult DeleteProduct(Product_tbl product)
-        {
-           
-            db.SaveChanges();
-            return View();
-        }
+        
 
-        [HttpGet]
-        public ActionResult DetailsProduct(int id)
-        {
-            var obj = db.Product_tbl.Find(id);
-            return View(obj);
-        }
-
+       
 
         public ActionResult Order_tbl()
         {
+            try
+            {
+                if (Session["Role"] == null)
+                {
+                    return RedirectToAction("Login", "Authentication");
+                }
+            }
+            catch
+            {
+                return RedirectToAction("Login", "Authentication");
+            }
+            
             var obj = db.Order_tbl.ToList();
             return View(obj);
         }
@@ -184,6 +200,18 @@ namespace Crafty.Controllers
         [HttpGet]
         public ActionResult EditOrder(int? id)
         {
+            try
+            {
+                if (Session["Role"] == null)
+                {
+                    return RedirectToAction("Login", "Authentication");
+                }
+            }
+            catch
+            {
+                return RedirectToAction("Login", "Authentication");
+            }
+            
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -214,8 +242,8 @@ namespace Crafty.Controllers
                 {
                     db.Entry(order).State = EntityState.Modified;
                     db.SaveChanges();
-                return RedirectToAction("EditOrder", "Dashboard");
-            }
+                    return RedirectToAction("EditOrder", "Dashboard");
+                }
                 ViewBag.Cart_ID = new SelectList(db.Cart_tbl, "Cart_ID", "Cart_ID", order.Cart_ID);
                 ViewBag.P_ID = new SelectList(db.Product_tbl, "P_ID", "Product_Name", order.P_ID);
                 ViewBag.Pay_ID = new SelectList(db.Payment_tbl, "Pay_ID", "Pay_Method", order.Pay_ID);
@@ -223,6 +251,21 @@ namespace Crafty.Controllers
                 return View(order);
             }
 
-        
+
+
+
+
+
+
+
+
+        public ActionResult Customer()
+        {
+            
+            var obj = db.User_tbl.Include(o => o.Cart_tbl).Include(o => o.Payment_tbl).Include(o => o.Order_tbl).ToList();
+            
+            return View(obj);
+        }
+
     }
 }
