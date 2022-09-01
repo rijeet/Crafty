@@ -1,105 +1,229 @@
 ﻿@model Crafty.Models.User_tbl
 
-<div>
-    <h4>User_tbl</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Image)
-        </dt>
+@{
+    Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
+}
 
-        <dd>
-            @Html.DisplayFor(model => model.Image)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Firstname)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Firstname)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Lastname)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Lastname)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Phone)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Phone)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Mail)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Mail)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Dateofbirth)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Dateofbirth)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Address)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Address)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Gender)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Gender)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Username)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Username)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Password)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Password)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CreatedOn)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CreatedOn)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Role)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Role)
-        </dd>
-
-    </dl>
+<!-- Page-Title -->
+<div class="row">
+    <div class="col-sm-12">
+        <div class="page-title-box">
+            <div class="float-right">
+            </div>
+            <h4 class="page-title">Profile</h4>
+        </div><!--end page-title-box-->
+    </div><!--end col-->
 </div>
+<!-- end page title end breadcrumb -->
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body  met-pro-bg">
+                <div class="met-profile">
+                    <div class="row">
+                        <div class="col-lg-4 align-self-center mb-3 mb-lg-0">
+                            <div class="met-profile-main">
+                                <div class="met-profile-main-pic">
 
+                                    <img src="@Url.Content(Model.Image)" alt="" class="rounded-circle" height="128">
+                                    <span class="fro-profile_main-pic-change">
+                                        <i class="fas fa-camera"></i>
+                                    </span>
+                                </div>
+                                <div class="met-profile_user-detail">
+                                    <h5 class="met-user-name">@Html.DisplayFor(model => model.Firstname) @Html.DisplayFor(model => model.Lastname)</h5>
+                                    <p class="mb-0 met-user-name-post"> @Html.DisplayFor(model => model.Role)</p>
+                                </div>
+                            </div>
+                        </div><!--end col-->
+                        <div class="col-lg-4 ml-auto">
+                            <ul class="list-unstyled personal-detail">
+                                <li class=""><i class="dripicons-phone mr-2 text-info font-18"></i> <b> phone </b> :   @Html.DisplayFor(model => model.Phone) </li>
+                                <li class="mt-2"><i class="dripicons-mail text-info font-18 mt-2 mr-2"></i> <b> Email </b> :   @Html.DisplayFor(model => model.Mail)</li>
+                                <li class="mt-2"><i class="dripicons-location text-info font-18 mt-2 mr-2"></i> <b>Location</b> :   @Html.DisplayFor(model => model.Address)</li>
+                            </ul>
+                            <div class="button-list btn-social-icon">
+                                <button type="button" class="btn btn-blue btn-circle">
+                                    <i class="fab fa-facebook-f"></i>
+                                </button>
+
+                                <button type="button" class="btn btn-secondary btn-circle ml-2">
+                                    <i class="fab fa-twitter"></i>
+                                </button>
+
+                                <button type="button" class="btn btn-pink btn-circle  ml-2">
+                                    <i class="fab fa-dribbble"></i>
+                                </button>
+                            </div>
+                        </div><!--end col-->
+                    </div><!--end row-->
+                </div><!--end f_profile-->
+            </div><!--end card-body-->
+        </div><!--end card-->
+    </div><!--end col-->
+</div><!--end row-->
+<!-- Modal -->
+
+
+
+
+<div class="btn-blue" onclick="toggleDiv()">Update Profile</div>
+<div class="row" id="div1">
+
+    <div class="col-12">
+        <div class="tab-content detail-list" id="pills-tabContent">
+
+            <div class="row">
+                <div class="col-lg-12 col-xl-9 mx-auto">
+                    <div class="card">
+                        <div class="card-body">
+
+                        @using (Html.BeginForm("Profile", "Dashboard", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        {
+	                        @Html.AntiForgeryToken()
+
+	                            <div class="form-group">
+		                            @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label col-md-2" })
+		                            <div class="col-md-10">
+			                           
+			                           
+			                            <input type="file" id="input-file-now-custom-1"  required name="ImageFile" class="dropify" data-default-file="@Url.Content(Model.Image)" />
+
+		                            </div>
+	                            </div>
+
+	                            <div class="form-group">
+                                    @Html.LabelFor(model => model.Firstname, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.Firstname, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Firstname, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Lastname, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.Lastname, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Lastname, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Mail, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.Mail, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Mail, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Dateofbirth, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.Dateofbirth, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Dateofbirth, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.Gender, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Username, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.CreatedOn, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.CreatedOn, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.CreatedOn, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Role, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.Role, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Role, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-md-offset-2 col-md-10">
+                                        <input type="submit" value="Save" class="btn btn-default" />
+                                    </div>
+                                </div>
+
+                        }
+                        </div>
+                    </div>
+                </div> <!--end col-->
+            </div><!--end row-->
+        </div><!--end settings detail-->
+
+    </div><!--end col-->
+</div><!--end row-->
+
+
+
+<script>
+
+    function toggleDiv() {
+        var displayStatus = document.getElementById("div1");
+        if ((displayStatus.style.display) == 'none') {
+            displayStatus.style.display = 'block';
+        } else {
+            displayStatus.style.display = 'none';
+        }
+    };
+
+</script>
+
+
+@section scripts {
+    <script src="~/plugins/dropify/js/dropify.min.js"></script>
+    <script src="~/plugins/moment/moment.js"></script>
+    <script src="~/plugins/filter/isotope.pkgd.min.js"></script>
+    <script src="~/plugins/filter/masonry.pkgd.min.js"></script>
+    <script src="~/plugins/filter/jquery.magnific-popup.min.js"></script>
+    <script src="~/plugins/chartjs/chart.min.js"></script>
+    <script src="~/plugins/chartjs/roundedBar.min.js"></script>
+    <script src="~/plugins/lightpick/lightpick.js"></script>
+    <script src="~/scripts/pages/jquery.profile.init.js"></script>
+    <link href="~/plugins/dropify/css/dropify.min.css" rel="stylesheet">
+    <link href="~/plugins/filter/magnific-popup.css" rel="stylesheet" type="text/css" />
+    <link href="~/plugins/lightpick/lightpick.css" rel="stylesheet" />
+}
