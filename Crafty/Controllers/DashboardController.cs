@@ -15,7 +15,7 @@ namespace Crafty.Controllers
     public class DashboardController : Controller
     {
         Crafty_DBEntities1 db = new Crafty_DBEntities1();
-        int U_ID= Crafty.Controllers.AuthenticationController.UID;
+        int ID= Crafty.Controllers.AuthenticationController.UID;
         // GET: Dashboard
         public ActionResult Index()
         {
@@ -49,7 +49,32 @@ namespace Crafty.Controllers
         [HttpGet]
         public new ActionResult Profile()
         {
-
+            try
+            {
+                if (Session["Role"] == null)
+                {
+                    return RedirectToAction("Login", "Authentication");
+                }
+            }
+            catch
+            {
+                return RedirectToAction("Login", "Authentication");
+            }
+            if (ID == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            User_tbl user_tbl = db.User_tbl.Find(ID);
+            if (user_tbl == null)
+            {
+                return HttpNotFound();
+            }
+            return View(user_tbl);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public new ActionResult Profile([Bind(Include = "U_ID,Image,Firstname,Lastname,Phone,Mail,Dateofbirth,Address,Gender,Username,Password,CreatedOn,Role,ImageFile")] User_tbl user)
+        {
 
             try
             {
@@ -63,26 +88,21 @@ namespace Crafty.Controllers
                 return RedirectToAction("Login", "Authentication");
             }
             
-            var obj = db.User_tbl.Find(U_ID);
-            return View(obj);
-        }
-        [HttpPost]
-        public new ActionResult Profile(User_tbl user)
-        {
-           string filename = Path.GetFileNameWithoutExtension(user.ImageFile.FileName);
+            string filename = Path.GetFileNameWithoutExtension(user.ImageFile.FileName);
             string extension = Path.GetExtension(user.ImageFile.FileName);
            filename = filename + DateTime.Now.ToString("yymmssfff") + extension;
            user.Image = "~/img/UserImg/" + filename;
          filename = Path.Combine(Server.MapPath("~/img/UserImg/"), filename);
          user.ImageFile.SaveAs(filename);
-            
-            db.Entry(user).State = System.Data.Entity.EntityState.Modified;
-            db.SaveChanges();
-          //  db.User_tbl.Add(user);
-           // db.SaveChanges();
-            return View();
-        }
 
+         if (ModelState.IsValid)
+         {
+             db.Entry(user).State = EntityState.Modified;
+             db.SaveChanges();
+                return RedirectToAction("Profile", "Dashboard");
+         }
+         return View(user);
+        }
         public ActionResult Product_List()
         {
             try
@@ -200,17 +220,7 @@ namespace Crafty.Controllers
         [HttpGet]
         public ActionResult EditOrder(int? id)
         {
-            try
-            {
-                if (Session["Role"] == null)
-                {
-                    return RedirectToAction("Login", "Authentication");
-                }
-            }
-            catch
-            {
-                return RedirectToAction("Login", "Authentication");
-            }
+           
             
             if (id == null)
             {
@@ -221,10 +231,10 @@ namespace Crafty.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.Cart_ID = new SelectList(db.Cart_tbl, "Cart_ID", "Cart_ID", order_tbl.Cart_ID);
+            ViewBag.Cart_ID = new SelectList(db.Cart_tbl, "Cart_ID", "Quantity", order_tbl.Cart_ID);
             ViewBag.P_ID = new SelectList(db.Product_tbl, "P_ID", "Product_Name", order_tbl.P_ID);
-            ViewBag.Pay_ID = new SelectList(db.Payment_tbl, "Pay_ID", "Pay_Method", order_tbl.Pay_ID);
-            ViewBag.U_ID = new SelectList(db.User_tbl, "U_ID", "Image", order_tbl.U_ID);
+            ViewBag.Pay_ID = new SelectList(db.Payment_tbl, "Pay_ID", "Pay_Status", order_tbl.Pay_ID);
+            ViewBag.U_ID = new SelectList(db.User_tbl, "U_ID", "Username", order_tbl.U_ID);
 
 
 
@@ -244,10 +254,10 @@ namespace Crafty.Controllers
                     db.SaveChanges();
                     return RedirectToAction("Order_tbl", "Dashboard");
                 }
-                ViewBag.Cart_ID = new SelectList(db.Cart_tbl, "Cart_ID", "Cart_ID", order.Cart_ID);
+                ViewBag.Cart_ID = new SelectList(db.Cart_tbl, "Cart_ID", "Quantity", order.Cart_ID);
                 ViewBag.P_ID = new SelectList(db.Product_tbl, "P_ID", "Product_Name", order.P_ID);
-                ViewBag.Pay_ID = new SelectList(db.Payment_tbl, "Pay_ID", "Pay_Method", order.Pay_ID);
-                ViewBag.U_ID = new SelectList(db.User_tbl, "U_ID", "Image", order.U_ID);
+                ViewBag.Pay_ID = new SelectList(db.Payment_tbl, "Pay_ID", "Pay_Status", order.Pay_ID);
+                ViewBag.U_ID = new SelectList(db.User_tbl, "U_ID", "Username", order.U_ID);
                 return View(order);
             }
 
@@ -298,7 +308,19 @@ namespace Crafty.Controllers
 
         public ActionResult PaymentList()
         {
-            
+
+            try
+            {
+                if (Session["Role"] == null)
+                {
+                    return RedirectToAction("Login", "Authentication");
+                }
+            }
+            catch
+            {
+                return RedirectToAction("Login", "Authentication");
+            }
+
 
             var obj = db.Payment_tbl.Include(p => p.Cart_tbl).Include(p => p.Product_tbl).Include(p => p.User_tbl).ToList();
             return View(obj);
@@ -307,7 +329,20 @@ namespace Crafty.Controllers
 
         // GET: Payment_tbl/Edit/5
         public ActionResult EditPayment(int? id)
+        
         {
+            try
+            {
+                if (Session["Role"] == null)
+                {
+                    return RedirectToAction("Login", "Authentication");
+                }
+            }
+            catch
+            {
+                return RedirectToAction("Login", "Authentication");
+            }
+            
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -317,9 +352,9 @@ namespace Crafty.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.Cart_ID = new SelectList(db.Cart_tbl, "Cart_ID", "Cart_ID", payment_tbl.Cart_ID);
+            ViewBag.Cart_ID = new SelectList(db.Cart_tbl, "Cart_ID", "Quantity", payment_tbl.Cart_ID);
             ViewBag.P_ID = new SelectList(db.Product_tbl, "P_ID", "Product_Name", payment_tbl.P_ID);
-            ViewBag.U_ID = new SelectList(db.User_tbl, "U_ID", "Image", payment_tbl.U_ID);
+            ViewBag.U_ID = new SelectList(db.User_tbl, "U_ID", "Username", payment_tbl.U_ID);
             return View(payment_tbl);
         }
 
@@ -334,11 +369,11 @@ namespace Crafty.Controllers
             {
                 db.Entry(payment_tbl).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("PaymentList", "Dashboard");
             }
-            ViewBag.Cart_ID = new SelectList(db.Cart_tbl, "Cart_ID", "Cart_ID", payment_tbl.Cart_ID);
+            ViewBag.Cart_ID = new SelectList(db.Cart_tbl, "Cart_ID", "Quantity", payment_tbl.Cart_ID);
             ViewBag.P_ID = new SelectList(db.Product_tbl, "P_ID", "Product_Name", payment_tbl.P_ID);
-            ViewBag.U_ID = new SelectList(db.User_tbl, "U_ID", "Image", payment_tbl.U_ID);
+            ViewBag.U_ID = new SelectList(db.User_tbl, "U_ID", "Username", payment_tbl.U_ID);
             return View(payment_tbl);
         }
 
