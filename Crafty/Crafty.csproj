@@ -130,13 +130,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AuthenticationController.cs" />
-    <Compile Include="Controllers\Cart_tblController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\Order_tblController.cs" />
-    <Compile Include="Controllers\Payment_tblController.cs" />
-    <Compile Include="Controllers\Product_tblController.cs" />
-    <Compile Include="Controllers\User_tblController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -340,27 +335,23 @@
     <Content Include="Views\Authentication\Login.cshtml" />
     <Content Include="Views\Dashboard\Index.cshtml" />
     <Content Include="Views\Authentication\Registration.cshtml" />
-    <Content Include="Views\Cart_tbl\Create.cshtml" />
-    <Content Include="Views\Cart_tbl\Delete.cshtml" />
-    <Content Include="Views\Cart_tbl\Details.cshtml" />
-    <Content Include="Views\Cart_tbl\Edit.cshtml" />
-    <Content Include="Views\Cart_tbl\Index.cshtml" />
-    <Content Include="Views\Dashboard\Edit.cshtml" />
-    <Content Include="Views\Dashboard\Delete.cshtml" />
-    <Content Include="Views\Dashboard\Details.cshtml" />
     <Content Include="Views\Dashboard\AddProduct.cshtml" />
     <Content Include="Views\Dashboard\EditProduct.cshtml" />
-    <Content Include="Views\Dashboard\DeleteProduct.cshtml" />
-    <Content Include="Views\Dashboard\DetailsProduct.cshtml" />
-    <Content Include="Views\Dashboard\ShowProduct.cshtml" />
     <Content Include="Views\Home\HomePage.cshtml" />
     <Content Include="Views\Home\Product_tblShow.cshtml" />
-    <Content Include="Views\Dashboard\Profile.cshtml" />
     <Content Include="Views\Shared\_LayoutPageAdmin.cshtml" />
     <Content Include="Views\Shared\_leftbar-tab-menu.cshtml" />
     <Content Include="Views\Shared\_top-bar.cshtml" />
     <Content Include="Views\Shared\_footer.cshtml" />
     <Content Include="Views\Shared\_right-bar.cshtml" />
+    <Content Include="Views\Dashboard\Product_List.cshtml" />
+    <Content Include="Views\Dashboard\Profile.cshtml" />
+    <Content Include="Views\Dashboard\Order_tbl.cshtml" />
+    <Content Include="Views\Dashboard\EditOrder.cshtml" />
+    <Content Include="Views\Dashboard\Customer.cshtml" />
+    <Content Include="Views\Dashboard\CartList.cshtml" />
+    <Content Include="Views\Dashboard\PaymentList.cshtml" />
+    <Content Include="Views\Dashboard\EditPayment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
