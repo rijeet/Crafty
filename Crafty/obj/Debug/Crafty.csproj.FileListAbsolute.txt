@@ -330,3 +330,8 @@ G:\Code 3.2\SD Lab\Crafty\Crafty\obj\Debug\Crafty.csproj.CoreCompileInputs.cache
 G:\Code 3.2\SD Lab\Crafty\Crafty\obj\Debug\Crafty.csproj.CopyComplete
 G:\Code 3.2\SD Lab\Crafty\Crafty\obj\Debug\Crafty.dll
 G:\Code 3.2\SD Lab\Crafty\Crafty\obj\Debug\Crafty.pdb
+G:\Code 3.2\SD Lab\Crafty\Crafty\bin\Glimpse.Ado.dll
+G:\Code 3.2\SD Lab\Crafty\Crafty\bin\Glimpse.AspNet.dll
+G:\Code 3.2\SD Lab\Crafty\Crafty\bin\Glimpse.Core.dll
+G:\Code 3.2\SD Lab\Crafty\Crafty\bin\Glimpse.EF6.dll
+G:\Code 3.2\SD Lab\Crafty\Crafty\bin\Glimpse.Mvc5.dll
