@@ -32,7 +32,7 @@ An E-commerce website where customers can buy home-crafted items.
 
 Install Visual Studio 2022 and MS SQL Server 2015 Express. Then Download the project From Github.
 
-Change the Connection String Source and Password according to Your SQLEXPRESS
+Change the ConnectionString in Web.config, Source and Password according to Your SQLEXPRESS
 ```bash
    <connectionStrings><add name="Crafty_DBEntities" connectionString="metadata=res://*/Models.Crafty_DBEntities.csdl|res://*/Models.Crafty_DBEntities.ssdl|res://*/Models.Crafty_DBEntities.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=RIWINZO\SQLEXPRESS;initial catalog=Crafty_DB;user id=sa;password=123456;MultipleActiveResultSets=True;App=EntityFramework&quot;" providerName="System.Data.EntityClient" />
    <add name="Crafty_DBEntities1" connectionString="metadata=res://*/Models.Crafty_DBEntities.csdl|res://*/Models.Crafty_DBEntities.ssdl|res://*/Models.Crafty_DBEntities.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=RIWINZO\SQLEXPRESS;initial catalog=Crafty_DB;user id=sa;password=123456;MultipleActiveResultSets=True;App=EntityFramework&quot;" providerName="System.Data.EntityClient" /></connectionStrings>
