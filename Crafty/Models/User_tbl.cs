@@ -7,6 +7,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.ComponentModel.DataAnnotations;
+
 namespace Crafty.Models
 {
     using System;
@@ -22,20 +24,48 @@ namespace Crafty.Models
             this.Order_tbl = new HashSet<Order_tbl>();
             this.Payment_tbl = new HashSet<Payment_tbl>();
         }
-    
+       
         public int U_ID { get; set; }
+       
         public string Image { get; set; }
+        
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Give your First Name")]
+        [RegularExpression(@"^[a-zA-Z''-'\s]{1,40}$")]
         public string Firstname { get; set; }
+        
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Give your Last Name")]
+        [RegularExpression(@"^[a-zA-Z''-'\s]{1,40}$")]
         public string Lastname { get; set; }
+        
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Give your Phone Number")]
+        [Phone]
         public string Phone { get; set; }
+        
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Give your Mail")]
+        [EmailAddress]
         public string Mail { get; set; }
+        
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Give your Date of Birth")]
+        
         public Nullable<System.DateTime> Dateofbirth { get; set; }
+
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Give your Address")]
         public string Address { get; set; }
+        
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Give your Gender")]
         public string Gender { get; set; }
+        
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Give your UserName")]
         public string Username { get; set; }
+        
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Give your Password")]
+        [DataType(DataType.Password)]
         public string Password { get; set; }
+       
 
         public HttpPostedFileBase ImageFile { get; set; }
+
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Give your Created Date")]
         public Nullable<System.DateTime> CreatedOn { get; set; }
         public string Role { get; set; }
     

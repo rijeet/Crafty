@@ -1,54 +1,58 @@
 ﻿@model IEnumerable<Crafty.Models.Product_tbl>
 
 
-
-<div class="ImageDiv">
-
-    <div class="container ">
-
-        <div class="row mt-4">
-
-
-            @foreach (var item in Model)
-            {
-
-
-                <div class="col-md-3 mt-3">
-
-                    <div class="card">
-
-                        <img width="255" height="200" src="@Url.Content(item.Product_Image)">
-
-                        <div class="card-body">
-
-                            <h4 class="card-title">@Html.DisplayFor(modelItem => item.Product_Name) </h4>
-	                        <h4 class="card-title">@Html.DisplayFor(modelItem => item.Product_Descriptation) </h4>
-	                        <h4 class="card-title">@Html.DisplayFor(modelItem => item.Product_Offer_Price) </h4>
-	                        <h4 class="card-title">@Html.DisplayFor(modelItem => item.Category) </h4>
-	                        <h4 class="card-title">@Html.DisplayFor(modelItem => item.Features) </h4>
-	                        <h4 class="card-title">@Html.DisplayFor(modelItem => item.Product_Stock) </h4>
-                            <h4 class="card-title">@Html.ActionLink("Details", "Product_tblShow", new { id = item.P_ID })</h4>
-
-                            <div class="col text-center">
-                                <button type="submit" class="btn btn-success" name="edit_btn">
-                                    Select
-                                </button>
-                            </div>
-
-
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-            }
-
-        </div>
-
-    </div>
-
-
+<div class="row">
+    <div class="col-sm-12">
+        <div class="page-title-box">
+            <div class="float-right">
+            </div>
+            <h4 class="page-title">Products</h4>
+        </div><!--end page-title-box-->
+    </div><!--end col-->
 </div>
+<!-- end page title end breadcrumb -->
+<div class="row">
+	
+	
+	
+	
+	@foreach (var item in Model)
+	{
+
+		<div class="col-md-3">
+			<div class="card">
+				<div class="card-body">
+					<div class="ribbon1 rib1-warning">
+						<span class="text-white text-center rib1-warning">@Html.DisplayFor(modelItem => item.Product_Discount)% off</span>
+					</div><!--end ribbon-->
+					<img width="255"  alt="" class="d-block mx-auto my-4" height="170" src="@Url.Content(item.Product_Image)">
+					<div class="d-flex justify-content-between align-items-center my-4">
+						<div>
+							<p class="text-muted mb-2">@Html.DisplayFor(modelItem => item.Category)</p>
+							<a href="#" class="header-title">@Html.DisplayFor(modelItem => item.Product_Name)</a>
+						</div>
+						<div>
+							<h4 class="text-dark mt-0 mb-2">$@Html.DisplayFor(modelItem => item.Product_Offer_Price) <small class="text-muted font-14"><del>$@Html.DisplayFor(modelItem => item.Product_Base_Price)</del></small></h4>
+							<ul class="list-inline mb-0 product-review align-self-center">
+								<li class="list-inline-item"><i class="la la-star text-warning font-16"></i></li>
+								<li class="list-inline-item"><i class="la la-star text-warning font-16 ml-n2"></i></li>
+								<li class="list-inline-item"><i class="la la-star text-warning font-16 ml-n2"></i></li>
+								<li class="list-inline-item"><i class="la la-star text-warning font-16 ml-n2"></i></li>
+								<li class="list-inline-item"><i class="la la-star-half-o text-warning font-16 ml-n2"></i></li>
+							</ul>
+						</div>
+					</div>
+                    <button class="btn btn-soft-primary btn-block">@Html.ActionLink("Details", "Product_tblShow", new { id = item.P_ID })</button>
+				</div><!--end card-body-->
+			</div><!--end card-->
+		</div><!--end col-->
+		
+
+
+	}
+	
+	
+	
+
+</div>  <!--end row-->
+
