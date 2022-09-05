@@ -1,89 +1,94 @@
 ﻿@model Crafty.Models.Product_tbl
 
-<div>
-    <h4>Product_tbl</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Product_Name)
-        </dt>
+@{
 
-        <dd>
-            @Html.DisplayFor(model => model.Product_Name)
-        </dd>
+    ViewBag.Title = "ProductShow";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Product_Image)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Product_Image)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Product_Base_Price)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Product_Base_Price)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Product_Offer_Price)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Product_Offer_Price)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Product_Discount)
-        </dt>
+<br />
+<br />
+<br />
+<br />
+<br />
+<body class="body">
+    <form action="~/Home/Product_tblShow" method="post">
 
-        <dd>
-            @Html.DisplayFor(model => model.Product_Discount)
-        </dd>
+        <div class="container mt-5 mb-5">
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-10">
+                    <div class="card">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="images p-3">
+                                    <div class="text-center p-4"> <img src="@Url.Content(Model.Product_Image)" width="250" /> </div>
+                                    <div class="thumbnail text-center"> <img src="https://i.imgur.com/Rx7uKd0.jpg" width="70"> <img src="https://i.imgur.com/Dhebu4F.jpg" width="70"> </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="product p-4">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="d-flex align-items-center"> <i class="fa fa-long-arrow-left"></i> <span class="ml-1">Back</span> </div> <i class="fa fa-shopping-cart text-muted"></i>
+                                    </div>
+                                    <div class="mt-4 mb-3">
+                                        <span class="text-uppercase text-muted brand">@Html.DisplayFor(model => model.Product_Name)</span>
+                                        <h5 class="text-uppercase">@Html.DisplayFor(model => model.Category)</h5>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Category)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Category)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Features)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Features)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Product_Descriptation)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Product_Descriptation)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Product_Stock)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Product_Stock)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Product_Sold)
-        </dt>
+                                    </div>
+                                    <p class="about">@Html.DisplayFor(model => model.Product_Descriptation)</p>
 
-        <dd>
-            @Html.DisplayFor(model => model.Product_Sold)
-        </dd>
 
-    </dl>
-</div>
+
+
+                                    <input type="hidden" name="ProductID" value="@ViewBag.Product_id">
+                                    <input type="hidden" name="ID" value="@Crafty.Controllers.AuthenticationController.UID">
+
+
+                                    <div class="sizes mt-5">
+                                        <h6 class="text-uppercase">Size</h6> <label class="radio"> <input type="radio" name="Size" value="M"> <span>M</span> </label> <label class="radio"> <input type="radio" name="Size" value="L"> <span>L</span> </label> <label class="radio"> <input type="radio" name="Size" value="XL"> <span>XL</span> </label> <label class="radio"> <input type="radio" name="Size" value="XXL"> <span>XXL</span> </label>
+                                    </div>
+                                    <div class="sizes mt-5">
+                                        <h6 class="text-uppercase">Color</h6> <label class="radio"> <input type="radio" name="Color" value="Red" checked> <span>Red</span> </label> <label class="radio"> <input type="radio" name="Color" value="Blue"> <span>Blue</span> </label> <label class="radio"> <input type="radio" name="Color" value="Yellow"> <span>Yellow</span> </label> <label class="radio"> <input type="radio" name="Color" value="Green"> <span>Green</span> </label> <label class="radio"> <input type="radio" name="Color" value="Pink"> <span>Pink</span> </label>
+                                    </div>
+
+                                    <!-- Variation insert button -->
+
+                                    <div class="cart mt-4 align-items-center"> <button class="btn btn-danger text-uppercase mr-2 px-4">Insert Variation</button> <i class="fa fa-heart text-muted"></i> <i class="fa fa-share-alt text-muted"></i> </div>
+
+                                    <!-- Variation insert button END -->
+                                    <!-- <div class="cart mt-4 align-items-center"> <button class="btn btn-danger text-uppercase mr-2 px-4">Add to cart</button> <i class="fa fa-heart text-muted"></i> <i class="fa fa-share-alt text-muted"></i> </div> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </form>
+
+
+    <br><br><br><br><br><br>
+
+    <!-- ======= Footer ======= -->
+    <!-- End Footer -->
+
+
+
+</body>
+
 

@@ -1,0 +1,105 @@
+﻿
+@model IEnumerable<Crafty.Models.CartProduct>
+@{
+    ViewBag.Title = "Payment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@{
+    int randomNum = 0;
+    int transaction = 0;
+}
+
+<body>
+
+    <div class="card">
+        <div class="card-top border-bottom text-center">
+            
+        </div>
+        <div class="card-body">
+            <div class="row upper">
+               
+            </div>
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="left border">
+                        <div class="row">
+                            <span class="header">Payment</span>
+                         
+                        </div>
+                        <form action="~/Home/Payment" method="post">
+                            <input type="hidden" name="U_ID" readonly value="@Crafty.Controllers.AuthenticationController.UID" />
+                            @{
+                                Random rand = new Random();
+
+                                randomNum = rand.Next();
+                                randomNum = randomNum % 1000;
+
+                                transaction = randomNum - 110;
+                            }
+                            <br>
+                            <br>
+                            <span>Transaction_ID:</span>
+                            <input type="text" placeholder="Transaction_ID :" name="Transaction_ID">
+                            <br>
+                            <br>
+                            <span>Pay_Method:</span>
+                            <select name="Pay_Method">
+                                <option value="Card">Card</option>
+                                <option value="BKash">BKash</option>
+                                <option value="COD">COD</option>
+
+
+                            </select>
+                            <br>
+                            <br>
+                            <div class="row">
+                                @{
+                                    DateTime Pay_Date = DateTime.Now;
+                                    var getDate = Pay_Date.ToString("MM/dd/yyyy");
+                                }
+                                <div class="col-4">
+                                    <span>Pay_Date:</span>
+                                    <input placeholder="MM/DD/YY" value="@getDate" name="Pay_Date">
+                                </div>
+                                <div class="col-4">
+                                    <span>Pay_Status</span>
+                                    <select name="Pay_Status">
+                                        <option value="Proceeding">Proceeding</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-secondary">Proceed Payment</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="right border">
+                        <div class="header">Order Summary</div>
+                        
+
+                        @foreach (var item in Model)
+                        {
+                            <div class="row item">
+                                <div class="col-4 align-self-center"><img class="img-fluid" src="@Url.Content(item.product.Product_Image)"></div>
+                                <div class="col-8">
+                                    <div class="row"><b>$ @item.product.Product_Base_Price</b></div>
+                                    <div class="row text-muted">@item.product.Product_Descriptation</div>
+                                    <div class="row">Qty:@item.cart.Quantity</div>
+                                </div>
+                            </div>
+                        }
+                        <hr>
+
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+        </div>
+    </div>
+</body>
