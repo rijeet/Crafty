@@ -7,11 +7,13 @@ using System.Web.Mvc;
 using System.Web.Security;
 using Crafty.Models;
 
+
 namespace Crafty.Controllers
 {
     public class AuthenticationController : Controller
     {
         public static int UID = 0;
+        
         Crafty_DBEntities1 db = new Crafty_DBEntities1();
         // GET: Authentication
         public ActionResult Login()
@@ -30,6 +32,7 @@ namespace Crafty.Controllers
 
 
                 //select Role from User_tbl where Username='Rijeet'
+                
                 var credential1 = db.User_tbl.Where(u => u.Username == Auth.UserName).FirstOrDefault();
               
          UID = credential1.U_ID;
@@ -42,12 +45,17 @@ namespace Crafty.Controllers
 
                 else if (credential1.Role == "Admin")
                 {
+                    Session["userPic"] = credential1.Image;
+                    Session["userid"] = Auth.UserName;
+                    Session["Role"] = credential1.Role;
                     return RedirectToAction("Index", "Dashboard");
                 }
                 else
                 {
 
+                    Session["userPic"] = credential1.Image;
                     Session["userid"] = Auth.UserName;
+                    Session["Role"] = credential1.Role;
                     return RedirectToAction("HomePage", "Home");
                 }
 
@@ -110,6 +118,7 @@ namespace Crafty.Controllers
         }
         public ActionResult Logout()
         {
+            Session.Clear();
             FormsAuthentication.SignOut();
             return RedirectToAction("Login", "Authentication");
         }
