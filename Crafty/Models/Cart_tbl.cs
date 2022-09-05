@@ -34,4 +34,13 @@ namespace Crafty.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Payment_tbl> Payment_tbl { get; set; }
     }
+    public class CartProduct
+    {
+
+        public Cart_tbl cart { get; set; }
+        public Product_tbl product { get; set; }
+
+
+
+    }
 }
