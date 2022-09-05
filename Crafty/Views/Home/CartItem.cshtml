@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Crafty.Models.CartProduct>
+@model IEnumerable<Crafty.Models.CartProduct>
 @{
     ViewBag.Title = "Cart";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -70,8 +70,7 @@
                                 @foreach (var item in Model)
                                 {
 
-                                    /*cost = Convert.ToInt32(item.cart.TotalCost.ToString());
-                                    totalcost = totalcost + cost;*/
+                                    
                                     <div class="product">
                                         <div class="row">
                                             <div class="col-md-3">
@@ -137,9 +136,9 @@
                             <div class="summary">
                                 <h3>Summary</h3>
                                 <div class="summary-item"><span class="text">Subtotal</span><span class="price">@sum TK</span></div>
-                                <div class="summary-item"><span class="text">Discount</span><span class="price">$0 TK</span></div>
-                                <div class="summary-item"><span class="text">Shipping</span><span class="price">$60 Tk</span></div>
-                                <div class="summary-item"><span class="text">Total</span><span class="price">@sum+60 </span></div>
+                                <div class="summary-item"><span class="text">Discount</span><span class="price">0 TK</span></div>
+                                <div class="summary-item"><span class="text">Shipping</span><span class="price">50 Tk</span></div>
+                                <div class="summary-item"><span class="text">Total</span><span class="price">@sum+50 </span></div>
                                 <button type="button" class="button button2"> @Html.ActionLink("Payment", "Payment")</button>
                             </div>
                         </div>
