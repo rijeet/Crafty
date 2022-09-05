@@ -1,0 +1,53 @@
+﻿
+@model IEnumerable<Crafty.Models.Payment_tbl>
+
+@{
+    ViewBag.Title = "Display";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.P_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.U_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pay_Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pay_Date)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pay_ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.U_ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pay_Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pay_Date)
+            </td>
+
+        </tr>
+    }
+
+</table>
+
