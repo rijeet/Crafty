@@ -1,0 +1,150 @@
+﻿
+@model Crafty.Models.Product_tbl
+@{
+
+    ViewBag.Title = "DetailsProduct";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+
+        .button2 {
+            background-color: #008CBA;
+        }
+        /* Blue */
+        .button3 {
+            background-color: #f44336;
+        }
+        /* Red */
+        .button4 {
+            background-color: #e7e7e7;
+            color: black;
+        }
+        /* Gray */
+        .button5 {
+            background-color: #555555;
+        }
+        /* Black */
+    </style>
+</head>
+
+@{
+    int ptimes = 1;
+    string Qnty = @Html.DisplayFor(model => model.Product_Stock).ToHtmlString();
+    int qnty = Int32.Parse(Qnty);
+
+    string product_price = @Html.DisplayFor(model => model.Product_Base_Price).ToHtmlString();
+    int price_p = Int32.Parse(product_price);
+
+    int p_times = 0;
+
+}
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<body class="body">
+    <form action="~/Home/DetailsProduct" method="post">
+
+        <div class="container mt-5 mb-5">
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-10">
+                    <div class="card">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="images p-3">
+                                    <div class="text-center p-4"> <img src="@Url.Content(Model.Product_Image)" width="250" /> </div>
+                                     </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="product p-4">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="d-flex align-items-center">   </div> 
+                                    </div>
+                                    <div class="mt-4 mb-3">
+                                        <span class="text-uppercase text-muted brand">@Html.DisplayFor(model => model.Product_Name)</span>
+                                        <h5 class="text-uppercase">@Html.DisplayFor(model => model.Category)</h5>
+                                        <div class="price d-flex flex-row align-items-center">
+                                            <span class="act-price">@Html.DisplayFor(model => model.Product_Base_Price)</span>
+                                            <div class="ml-2"> <small class="dis-price">Quantity :</small> <span>@Html.DisplayFor(model => model.Product_Stock)</span> </div>
+                                        </div>
+
+
+
+
+
+
+                                        <div class="price d-flex flex-row align-items-center">
+                                            <input type="number" min="1" max="@qnty" name="Quantity" value="0">
+
+                                            <!--<span>Total Price :</span><span class="act-price">@price_p</span>
+
+                     <div class="ml-2"> <button id="plus_p" onclick="PLUS()" class="act-price">+</button><span>@ptimes</span> <button id="minus_p" onclick="MINUS()" class="act-price"> - </button></div>
+                     -->
+                                        </div>
+
+                                        <script>
+
+
+
+
+                                        </script>
+
+
+
+
+
+
+                                    </div>
+                                    <p class="about">@Html.DisplayFor(model => model.Product_Descriptation)</p>
+
+                                    <br />
+                                    <br />
+                                    <br />
+                                    <input type="hidden" name="P_ID" value="@ViewBag.Product_id">
+                                    <input type="hidden" name="U_ID" value="@Crafty.Controllers.AuthenticationController.UID">
+                                    <input type="text" name="Total_Price" value="@Html.DisplayFor(model => model.Product_Base_Price)" />
+
+                                    <div class="cart mt-4 align-items-center"> <button class="button button2">Add to cart</button>  </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </form>
+
+
+    <br><br><br><br><br><br>
+
+    <!-- ======= Footer ======= -->
+    <!-- End Footer -->
+
+
+
+</body>
+
+

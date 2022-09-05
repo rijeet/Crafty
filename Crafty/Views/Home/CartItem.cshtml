@@ -1,0 +1,168 @@
+﻿@model IEnumerable<Crafty.Models.CartProduct>
+@{
+    ViewBag.Title = "Cart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<style>
+    .button {
+        background-color: #4CAF50; /* Green */
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+
+    .button2 {
+        background-color: #008CBA;
+    }
+    /* Blue */
+    .button3 {
+        background-color: #f44336;
+    }
+    /* Red */
+    .button4 {
+        background-color: #e7e7e7;
+        color: black;
+    }
+    /* Gray */
+    .button5 {
+        background-color: #555555;
+    }
+    /* Black */
+</style>
+
+@{
+    int sum = 0;
+    int cost = 0;
+    int totalcost = 0;
+
+    int[] tcost = new int[1000];
+    tcost[0] = 0;
+    int count = 0;
+    int qnty;
+    int price_prod;
+    int total_cost;
+}
+
+<!DOCTYPE html>
+<html>
+
+<body>
+    <main class="page">
+        <section class="shopping-cart dark">
+            <div class="container">
+                <div class="block-heading">
+                    <h2>Your Cart is waiting for you</h2>
+                </div>
+                <div class="content">
+                    <div class="row">
+                        <div class="col-md-12 col-lg-8">
+                            <div class="items">
+
+
+                                @foreach (var item in Model)
+                                {
+
+                                    
+                                    <div class="product">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <img class="img-fluid mx-auto d-block image" src="@Url.Content(item.product.Product_Image)">
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="info">
+                                                    <div class="row">
+                                                        <div class="col-md-5 product-name">
+                                                            <div class="Product_Name">
+                                                                <a href="#">@item.product.Product_Name</a>
+                                                                <div class="product-info">
+                                                                    <div>Product_Description : <span class="value">5 @item.product.Product_Descriptation</span></div>
+                                                                    <div>Category :<span class="value">@item.product.Category</span></div>
+                                                                    
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4 quantity">
+                                                            <label for="quantity">Quantity:  </label>
+                                                            <span>@item.cart.Quantity</span>
+                                                        </div>
+                                                        @{
+                                                            string Qnt = item.cart.Quantity.ToString();
+                                                            qnty = Convert.ToInt32(Qnt);
+                                                            
+                                                            string prc = item.product.Product_Base_Price.ToString();
+                                                            price_prod = Convert.ToInt32(prc);
+
+                                                            total_cost = qnty * price_prod;
+
+                                                            sum = sum + total_cost;
+                                                        }
+
+                                                        <div class="col-md-3 price">
+                                                            <span> <div>Price :<span class="value">@total_cost </span></div></span>
+                                                            <div>
+                                                                @using (Html.BeginForm())
+                                                                {
+                                                                    @Html.AntiForgeryToken()
+                                                                    <button class="btn-secondary">
+                                                                        @Html.ActionLink("X", "CartDetailsProduct", new { id = item.cart.Cart_ID })
+                                                                    </button>
+                                                                }
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                }
+
+                            </div>
+                        </div>
+                        @{
+                            ViewBag.sum = sum;
+                        }
+                        <div class="col-md-12 col-lg-4">
+                            <div class="summary">
+                                <h3>Summary</h3>
+                                <div class="summary-item"><span class="text">Subtotal</span><span class="price">@sum TK</span></div>
+                                <div class="summary-item"><span class="text">Discount</span><span class="price">0 TK</span></div>
+                                <div class="summary-item"><span class="text">Shipping</span><span class="price">50 Tk</span></div>
+                                <div class="summary-item"><span class="text">Total</span><span class="price">@sum+50 </span></div>
+                                <button type="button" class="button button2"> @Html.ActionLink("Payment", "Payment")</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
